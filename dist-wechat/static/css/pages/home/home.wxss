@@ -1,0 +1,30 @@
+.app .custom {
+  margin-bottom: 20rpx;
+}
+.app ._img {
+  width: 800rpx;
+  height: 200rpx;
+}
+.app img {
+  width: 800rpx;
+  height: 200rpx;
+}
+.app .box {
+  padding: 10rpx;
+  text-align: center;
+}
+.app .tag_class {
+  background: green;
+  color: red;
+}
+.app .title_hq {
+  color: pink;
+  font-size: 40rpx;
+}
+.app .line {
+  height: 30rpx;
+}
+.app .price {
+  color: pink;
+  font-size: 50rpx;
+}

@@ -1,0 +1,3 @@
+<import src="../components/slots.wxml" />
+<import src="../components/tabbar$549babd6.wxml" />
+<template name="home$ffbbccba"><view class="_div app {{ h[ 0 ].rcl }} {{p}}"><button class="_button" data-cid="{{ _c || c }}" data-hid="{{ 1 }}" bindtap="_pe">服务协议页面</button><button class="_button" data-cid="{{ _c || c }}" data-hid="{{ 3 }}" bindtap="_pe">获取位置</button><picker class="_picker" mode="multiSelector" value="{{ h[ 5 ].value }}" range="{{ h[ 5 ].range }}" data-cid="{{ _c || c }}" data-hid="{{ 5 }}" bindchange="_pe" bindcolumnchange="_pe"><view class="_view tui-picker-detail">{{ h[ 7 ].t }}</view></picker><template is="tabbar$549babd6" data="{{ ...$root[ cp + 0 + (_t || '') ], $root, _t: _t || '',p:p||'' }}" /></view></template>

@@ -1,0 +1,4 @@
+<import src="../components/slots.wxml" />
+<template name="agreement$110a90d9"><view class="_div app {{ h[ 0 ].rcl }} {{p}}">
+  服务协议页面
+</view></template>
