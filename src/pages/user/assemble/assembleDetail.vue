@@ -16,10 +16,8 @@
   </div> 
 </template>
 <script>
+import countDown from "@/mixins/countDown";
 export default {
-  components: {
-      
-  },
   data() {
     return {
     imgUrls: [
@@ -29,6 +27,10 @@ export default {
         ]
     };
   },
+  components: {
+      
+  },
+  mixins: [countDown],
   beforeCreate() {},
   created() {},
   beforeMount() {},
@@ -40,6 +42,7 @@ export default {
     console.log("Page [my] onReady");
   },
   onShow() {
+      this.getCountDown('1561626799','day')
     // Do something when page show.
     console.log("Page [my] onShow");
   },
