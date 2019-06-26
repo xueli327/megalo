@@ -1,22 +1,35 @@
+<config>
+{
+  "usingComponents": {
+    "van-tab": "../../../native/vant/tab/index",
+    "van-tabs": "../../../native/vant/tabs/index"
+  },
+   navigationBarTitleText:'我的订单'
+}
+</config>
 <template>
   <div class="order-wrap">
-    <tabs></tabs>
+     <van-tabs :active="active"  bind:change="onChange">
+        <van-tab title="标签 1">内容 1</van-tab>
+        <van-tab title="标签 2">内容 2</van-tab>
+        <van-tab title="标签 3">内容 3</van-tab>
+        <van-tab title="标签 4">内容 4</van-tab>
+    </van-tabs>
   </div>
 </template>
 <style lang="scss">
-.order-wrap {
-
-}
 </style>
-
 <script>
 import tabs from '@/components/tabs'
+//console.log(tabs)
 export default {
-  comments:{
-    tabs
+  components:{
+   // tabs
   },
   data() {
-    return {};
+    return {
+      active:1
+    };
   },
   beforeCreate() {},
   created() {
