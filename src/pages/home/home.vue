@@ -15,15 +15,18 @@
         选择日期时间 {{dateTimeArray1[0][dateTime1[0]]}}-{{dateTimeArray1[1][dateTime1[1]]}}-{{dateTimeArray1[2][dateTime1[2]]}} {{dateTimeArray1[3][dateTime1[3]]}}:{{dateTimeArray1[4][dateTime1[4]]}}
       </view>
   </picker>
-
+    <div>
+      {{isIphonex}}
+    </div>
     <tab-bar :selectNavIndex="0"></tab-bar>
   </div>
 </template>
 <script>
 import tabBar from "@/components/tabbar";
-import { mapGetters, mapActions } from "vuex";
-import * as types from "../../store/modules/home/actionTypes";
-
+import { mapGetters, mapActions, mapMutations } from "vuex";
+import { SET_APP_ID, SET_USER_INFO } from "@/store/user";
+import { GET_SYSTEMINFO_SUCCESS } from "@/store/systemInfo";
+console.log(GET_SYSTEMINFO_SUCCESS, "systemInfo");
 var QQMapWX = require("../../static/qqmap-wx-jssdk.js");
 var dateTimePicker = require("../../utils/dateTimePicker.js");
 var qqmapsdk;
@@ -44,6 +47,11 @@ export default {
       startYear: 2000,
       endYear: 2050
     };
+  },
+  computed: {
+    isIphonex() {
+      console.log(this.getSystemInfo());
+    }
   },
   beforeCreate() {
     console.log("Page [my] Vue beforeCreate");
@@ -67,9 +75,9 @@ export default {
   },
   beforeMount() {},
   mounted() {},
-  computed: {
-    ...mapGetters("home", ["systemInfos"])
-  },
+  // computed: {
+  //   ...mapGetters("home", ["systemInfos"])
+  // },
   onLoad(options) {
     let that = this;
 
@@ -86,12 +94,12 @@ export default {
     });
     // Do some initialize when page load.
     console.log("Page [my] onLoad");
-      this.$flyio
+    this.$flyio
       .get("http://192.144.205.76:8081/gift/list")
       .then(d => {
         //输出请求数据
-        this[types.GET_SYSTMINFO]();
-        console.log("获取手机型号", this.systemInfos);
+        // this[types.GET_SYSTMINFO]();
+        // console.log("获取手机型号", this.systemInfos);
         //输出响应头
         console.log(d.header);
       })
@@ -119,22 +127,24 @@ export default {
    * for other event handlers, please check https://developers.weixin.qq.com/miniprogram/dev/framework/app-service/page.html
    */
   methods: {
-    ...mapActions("home", [types.GET_SYSTMINFO]),
+    ...mapMutations({
+      getSystemInfo: GET_SYSTEMINFO_SUCCESS
+    }),
     onInput(event) {},
-    linkto () {
-      this.$router.push('/pages/agreement/agreement')
+    linkto() {
+      this.$router.push("/pages/agreement/agreement");
     },
     changeDateTime1(e) {
-      this._data.dateTime1 = e.detail.value
+      this._data.dateTime1 = e.detail.value;
     },
     changeDateTimeColumn1(e) {
       var arr = this._data.dateTime1,
         dateArr = this._data.dateTimeArray1;
-        arr[e.detail.column] = e.detail.value;
-        dateArr[2] = dateTimePicker.getMonthDay(
-          dateArr[0][arr[0]],
-          dateArr[1][arr[1]]
-        );
+      arr[e.detail.column] = e.detail.value;
+      dateArr[2] = dateTimePicker.getMonthDay(
+        dateArr[0][arr[0]],
+        dateArr[1][arr[1]]
+      );
       this._data.dateTimeArray1 = dateArr;
       this._data.dateTime1 = arr;
     },

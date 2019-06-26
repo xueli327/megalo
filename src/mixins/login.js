@@ -5,7 +5,7 @@ import {
 import {
   SET_APP_ID,
   SET_USER_INFO
-} from '@/store1/user'
+} from '@/store/user'
 
 export default {
   data() {

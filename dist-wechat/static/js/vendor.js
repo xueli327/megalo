@@ -292,7 +292,10 @@ var render = function() {
         ],
         1
       ),
-      _c("tab-bar", { attrs: { selectNavIndex: 0, h_: 8, c_: 0 } })
+      _c("div", { attrs: { h_: 8 } }, [
+        _vm._v("\n    " + _vm._s(_vm.isIphonex) + "\n  ", 9)
+      ]),
+      _c("tab-bar", { attrs: { selectNavIndex: 0, h_: 10, c_: 0 } })
     ],
     1
   )
@@ -848,7 +851,8 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_tabbar__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("./src/components/tabbar.vue");
 /* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("./node_modules/vuex/dist/vuex.esm.js");
-/* harmony import */ var _store_modules_home_actionTypes__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__("./src/store/modules/home/actionTypes.js");
+/* harmony import */ var _store_user__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__("./src/store/user.js");
+/* harmony import */ var _store_systemInfo__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__("./src/store/systemInfo.js");
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; var ownKeys = Object.keys(source); if (typeof Object.getOwnPropertySymbols === 'function') { ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) { return Object.getOwnPropertyDescriptor(source, sym).enumerable; })); } ownKeys.forEach(function (key) { _defineProperty(target, key, source[key]); }); } return target; }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
@@ -874,9 +878,13 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
 
 
 
+
+console.log(_store_systemInfo__WEBPACK_IMPORTED_MODULE_3__["GET_SYSTEMINFO_SUCCESS"], "systemInfo");
 
 var QQMapWX = __webpack_require__("./src/static/qqmap-wx-jssdk.js");
 
@@ -901,6 +909,11 @@ var qqmapsdk;
       endYear: 2050
     };
   },
+  computed: {
+    isIphonex: function isIphonex() {
+      console.log(this.getSystemInfo());
+    }
+  },
   beforeCreate: function beforeCreate() {
     console.log("Page [my] Vue beforeCreate");
   },
@@ -917,10 +930,10 @@ var qqmapsdk;
   },
   beforeMount: function beforeMount() {},
   mounted: function mounted() {},
-  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapGetters"])("home", ["systemInfos"])),
+  // computed: {
+  //   ...mapGetters("home", ["systemInfos"])
+  // },
   onLoad: function onLoad(options) {
-    var _this = this;
-
     var that = this; // **********地图的调用*********** //
 
     qqmapsdk = new QQMapWX({
@@ -939,10 +952,9 @@ var qqmapsdk;
     console.log("Page [my] onLoad");
     this.$flyio.get("http://192.144.205.76:8081/gift/list").then(function (d) {
       //输出请求数据
-      _this[_store_modules_home_actionTypes__WEBPACK_IMPORTED_MODULE_2__["GET_SYSTMINFO"]]();
-
-      console.log("获取手机型号", _this.systemInfos); //输出响应头
-
+      // this[types.GET_SYSTMINFO]();
+      // console.log("获取手机型号", this.systemInfos);
+      //输出响应头
       console.log(d.header);
     }).catch(function (err) {
       console.log(err.status, err.message);
@@ -967,10 +979,12 @@ var qqmapsdk;
   /**
    * for other event handlers, please check https://developers.weixin.qq.com/miniprogram/dev/framework/app-service/page.html
    */
-  methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapActions"])("home", [_store_modules_home_actionTypes__WEBPACK_IMPORTED_MODULE_2__["GET_SYSTMINFO"]]), {
+  methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapMutations"])({
+    getSystemInfo: _store_systemInfo__WEBPACK_IMPORTED_MODULE_3__["GET_SYSTEMINFO_SUCCESS"]
+  }), {
     onInput: function onInput(event) {},
     linkto: function linkto() {
-      this.$router.push('/pages/agreement/agreement');
+      this.$router.push("/pages/agreement/agreement");
     },
     changeDateTime1: function changeDateTime1(e) {
       this._data.dateTime1 = e.detail.value;
@@ -12775,7 +12789,7 @@ app.$mount();
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("./node_modules/vuex/dist/vuex.esm.js");
-/* harmony import */ var _store1_user__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("./src/store1/user.js");
+/* harmony import */ var _store_user__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("./src/store/user.js");
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; var ownKeys = Object.keys(source); if (typeof Object.getOwnPropertySymbols === 'function') { ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) { return Object.getOwnPropertyDescriptor(source, sym).enumerable; })); } ownKeys.forEach(function (key) { _defineProperty(target, key, source[key]); }); } return target; }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
@@ -12790,8 +12804,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   },
   computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapGetters"])(['appid', 'userinfo'])),
   methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapMutations"])({
-    setAppId: _store1_user__WEBPACK_IMPORTED_MODULE_1__["SET_APP_ID"],
-    setUserInfo: _store1_user__WEBPACK_IMPORTED_MODULE_1__["SET_USER_INFO"]
+    setAppId: _store_user__WEBPACK_IMPORTED_MODULE_1__["SET_APP_ID"],
+    setUserInfo: _store_user__WEBPACK_IMPORTED_MODULE_1__["SET_USER_INFO"]
   }), {
     // 微信的登录
     wxLogin: function wxLogin() {
@@ -12823,14 +12837,14 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _Users_xiaoyanxue_Desktop_all_work2_megalo_node_modules_vue_loader_lib_index_js_vue_loader_options_Users_xiaoyanxue_Desktop_all_work2_megalo_src_pages_admin_index_index_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("./node_modules/vue-loader/lib/index.js?!./src/pages/admin/index/index.vue");
+/* harmony import */ var _Users_xueli_Desktop_megalo_node_modules_vue_loader_lib_index_js_vue_loader_options_Users_xueli_Desktop_megalo_src_pages_admin_index_index_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("./node_modules/vue-loader/lib/index.js?!./src/pages/admin/index/index.vue");
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("./node_modules/megalo/dist/megalo.mp.esm.js");
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(vue__WEBPACK_IMPORTED_MODULE_1__);
 
         
         
-        _Users_xiaoyanxue_Desktop_all_work2_megalo_node_modules_vue_loader_lib_index_js_vue_loader_options_Users_xiaoyanxue_Desktop_all_work2_megalo_src_pages_admin_index_index_vue__WEBPACK_IMPORTED_MODULE_0__["default"].mpType = "page";
-        new vue__WEBPACK_IMPORTED_MODULE_1___default.a(_Users_xiaoyanxue_Desktop_all_work2_megalo_node_modules_vue_loader_lib_index_js_vue_loader_options_Users_xiaoyanxue_Desktop_all_work2_megalo_src_pages_admin_index_index_vue__WEBPACK_IMPORTED_MODULE_0__["default"]).$mount();
+        _Users_xueli_Desktop_megalo_node_modules_vue_loader_lib_index_js_vue_loader_options_Users_xueli_Desktop_megalo_src_pages_admin_index_index_vue__WEBPACK_IMPORTED_MODULE_0__["default"].mpType = "page";
+        new vue__WEBPACK_IMPORTED_MODULE_1___default.a(_Users_xueli_Desktop_megalo_node_modules_vue_loader_lib_index_js_vue_loader_options_Users_xueli_Desktop_megalo_src_pages_admin_index_index_vue__WEBPACK_IMPORTED_MODULE_0__["default"]).$mount();
       
 
 /***/ }),
@@ -12876,14 +12890,14 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _Users_xiaoyanxue_Desktop_all_work2_megalo_node_modules_vue_loader_lib_index_js_vue_loader_options_Users_xiaoyanxue_Desktop_all_work2_megalo_src_pages_agreement_agreement_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("./node_modules/vue-loader/lib/index.js?!./src/pages/agreement/agreement.vue");
+/* harmony import */ var _Users_xueli_Desktop_megalo_node_modules_vue_loader_lib_index_js_vue_loader_options_Users_xueli_Desktop_megalo_src_pages_agreement_agreement_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("./node_modules/vue-loader/lib/index.js?!./src/pages/agreement/agreement.vue");
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("./node_modules/megalo/dist/megalo.mp.esm.js");
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(vue__WEBPACK_IMPORTED_MODULE_1__);
 
         
         
-        _Users_xiaoyanxue_Desktop_all_work2_megalo_node_modules_vue_loader_lib_index_js_vue_loader_options_Users_xiaoyanxue_Desktop_all_work2_megalo_src_pages_agreement_agreement_vue__WEBPACK_IMPORTED_MODULE_0__["default"].mpType = "page";
-        new vue__WEBPACK_IMPORTED_MODULE_1___default.a(_Users_xiaoyanxue_Desktop_all_work2_megalo_node_modules_vue_loader_lib_index_js_vue_loader_options_Users_xiaoyanxue_Desktop_all_work2_megalo_src_pages_agreement_agreement_vue__WEBPACK_IMPORTED_MODULE_0__["default"]).$mount();
+        _Users_xueli_Desktop_megalo_node_modules_vue_loader_lib_index_js_vue_loader_options_Users_xueli_Desktop_megalo_src_pages_agreement_agreement_vue__WEBPACK_IMPORTED_MODULE_0__["default"].mpType = "page";
+        new vue__WEBPACK_IMPORTED_MODULE_1___default.a(_Users_xueli_Desktop_megalo_node_modules_vue_loader_lib_index_js_vue_loader_options_Users_xueli_Desktop_megalo_src_pages_agreement_agreement_vue__WEBPACK_IMPORTED_MODULE_0__["default"]).$mount();
       
 
 /***/ }),
@@ -12941,14 +12955,14 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _Users_xiaoyanxue_Desktop_all_work2_megalo_node_modules_vue_loader_lib_index_js_vue_loader_options_Users_xiaoyanxue_Desktop_all_work2_megalo_src_pages_home_home_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("./node_modules/vue-loader/lib/index.js?!./src/pages/home/home.vue");
+/* harmony import */ var _Users_xueli_Desktop_megalo_node_modules_vue_loader_lib_index_js_vue_loader_options_Users_xueli_Desktop_megalo_src_pages_home_home_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("./node_modules/vue-loader/lib/index.js?!./src/pages/home/home.vue");
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("./node_modules/megalo/dist/megalo.mp.esm.js");
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(vue__WEBPACK_IMPORTED_MODULE_1__);
 
         
         
-        _Users_xiaoyanxue_Desktop_all_work2_megalo_node_modules_vue_loader_lib_index_js_vue_loader_options_Users_xiaoyanxue_Desktop_all_work2_megalo_src_pages_home_home_vue__WEBPACK_IMPORTED_MODULE_0__["default"].mpType = "page";
-        new vue__WEBPACK_IMPORTED_MODULE_1___default.a(_Users_xiaoyanxue_Desktop_all_work2_megalo_node_modules_vue_loader_lib_index_js_vue_loader_options_Users_xiaoyanxue_Desktop_all_work2_megalo_src_pages_home_home_vue__WEBPACK_IMPORTED_MODULE_0__["default"]).$mount();
+        _Users_xueli_Desktop_megalo_node_modules_vue_loader_lib_index_js_vue_loader_options_Users_xueli_Desktop_megalo_src_pages_home_home_vue__WEBPACK_IMPORTED_MODULE_0__["default"].mpType = "page";
+        new vue__WEBPACK_IMPORTED_MODULE_1___default.a(_Users_xueli_Desktop_megalo_node_modules_vue_loader_lib_index_js_vue_loader_options_Users_xueli_Desktop_megalo_src_pages_home_home_vue__WEBPACK_IMPORTED_MODULE_0__["default"]).$mount();
       
 
 /***/ }),
@@ -13006,14 +13020,14 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _Users_xiaoyanxue_Desktop_all_work2_megalo_node_modules_vue_loader_lib_index_js_vue_loader_options_Users_xiaoyanxue_Desktop_all_work2_megalo_src_pages_load_page_load_page_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("./node_modules/vue-loader/lib/index.js?!./src/pages/load_page/load_page.vue");
+/* harmony import */ var _Users_xueli_Desktop_megalo_node_modules_vue_loader_lib_index_js_vue_loader_options_Users_xueli_Desktop_megalo_src_pages_load_page_load_page_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("./node_modules/vue-loader/lib/index.js?!./src/pages/load_page/load_page.vue");
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("./node_modules/megalo/dist/megalo.mp.esm.js");
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(vue__WEBPACK_IMPORTED_MODULE_1__);
 
         
         
-        _Users_xiaoyanxue_Desktop_all_work2_megalo_node_modules_vue_loader_lib_index_js_vue_loader_options_Users_xiaoyanxue_Desktop_all_work2_megalo_src_pages_load_page_load_page_vue__WEBPACK_IMPORTED_MODULE_0__["default"].mpType = "page";
-        new vue__WEBPACK_IMPORTED_MODULE_1___default.a(_Users_xiaoyanxue_Desktop_all_work2_megalo_node_modules_vue_loader_lib_index_js_vue_loader_options_Users_xiaoyanxue_Desktop_all_work2_megalo_src_pages_load_page_load_page_vue__WEBPACK_IMPORTED_MODULE_0__["default"]).$mount();
+        _Users_xueli_Desktop_megalo_node_modules_vue_loader_lib_index_js_vue_loader_options_Users_xueli_Desktop_megalo_src_pages_load_page_load_page_vue__WEBPACK_IMPORTED_MODULE_0__["default"].mpType = "page";
+        new vue__WEBPACK_IMPORTED_MODULE_1___default.a(_Users_xueli_Desktop_megalo_node_modules_vue_loader_lib_index_js_vue_loader_options_Users_xueli_Desktop_megalo_src_pages_load_page_load_page_vue__WEBPACK_IMPORTED_MODULE_0__["default"]).$mount();
       
 
 /***/ }),
@@ -13071,14 +13085,14 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _Users_xiaoyanxue_Desktop_all_work2_megalo_node_modules_vue_loader_lib_index_js_vue_loader_options_Users_xiaoyanxue_Desktop_all_work2_megalo_src_pages_my_my_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("./node_modules/vue-loader/lib/index.js?!./src/pages/my/my.vue");
+/* harmony import */ var _Users_xueli_Desktop_megalo_node_modules_vue_loader_lib_index_js_vue_loader_options_Users_xueli_Desktop_megalo_src_pages_my_my_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("./node_modules/vue-loader/lib/index.js?!./src/pages/my/my.vue");
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("./node_modules/megalo/dist/megalo.mp.esm.js");
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(vue__WEBPACK_IMPORTED_MODULE_1__);
 
         
         
-        _Users_xiaoyanxue_Desktop_all_work2_megalo_node_modules_vue_loader_lib_index_js_vue_loader_options_Users_xiaoyanxue_Desktop_all_work2_megalo_src_pages_my_my_vue__WEBPACK_IMPORTED_MODULE_0__["default"].mpType = "page";
-        new vue__WEBPACK_IMPORTED_MODULE_1___default.a(_Users_xiaoyanxue_Desktop_all_work2_megalo_node_modules_vue_loader_lib_index_js_vue_loader_options_Users_xiaoyanxue_Desktop_all_work2_megalo_src_pages_my_my_vue__WEBPACK_IMPORTED_MODULE_0__["default"]).$mount();
+        _Users_xueli_Desktop_megalo_node_modules_vue_loader_lib_index_js_vue_loader_options_Users_xueli_Desktop_megalo_src_pages_my_my_vue__WEBPACK_IMPORTED_MODULE_0__["default"].mpType = "page";
+        new vue__WEBPACK_IMPORTED_MODULE_1___default.a(_Users_xueli_Desktop_megalo_node_modules_vue_loader_lib_index_js_vue_loader_options_Users_xueli_Desktop_megalo_src_pages_my_my_vue__WEBPACK_IMPORTED_MODULE_0__["default"]).$mount();
       
 
 /***/ }),
@@ -13136,14 +13150,14 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _Users_xiaoyanxue_Desktop_all_work2_megalo_node_modules_vue_loader_lib_index_js_vue_loader_options_Users_xiaoyanxue_Desktop_all_work2_megalo_src_pages_position_position_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("./node_modules/vue-loader/lib/index.js?!./src/pages/position/position.vue");
+/* harmony import */ var _Users_xueli_Desktop_megalo_node_modules_vue_loader_lib_index_js_vue_loader_options_Users_xueli_Desktop_megalo_src_pages_position_position_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("./node_modules/vue-loader/lib/index.js?!./src/pages/position/position.vue");
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("./node_modules/megalo/dist/megalo.mp.esm.js");
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(vue__WEBPACK_IMPORTED_MODULE_1__);
 
         
         
-        _Users_xiaoyanxue_Desktop_all_work2_megalo_node_modules_vue_loader_lib_index_js_vue_loader_options_Users_xiaoyanxue_Desktop_all_work2_megalo_src_pages_position_position_vue__WEBPACK_IMPORTED_MODULE_0__["default"].mpType = "page";
-        new vue__WEBPACK_IMPORTED_MODULE_1___default.a(_Users_xiaoyanxue_Desktop_all_work2_megalo_node_modules_vue_loader_lib_index_js_vue_loader_options_Users_xiaoyanxue_Desktop_all_work2_megalo_src_pages_position_position_vue__WEBPACK_IMPORTED_MODULE_0__["default"]).$mount();
+        _Users_xueli_Desktop_megalo_node_modules_vue_loader_lib_index_js_vue_loader_options_Users_xueli_Desktop_megalo_src_pages_position_position_vue__WEBPACK_IMPORTED_MODULE_0__["default"].mpType = "page";
+        new vue__WEBPACK_IMPORTED_MODULE_1___default.a(_Users_xueli_Desktop_megalo_node_modules_vue_loader_lib_index_js_vue_loader_options_Users_xueli_Desktop_megalo_src_pages_position_position_vue__WEBPACK_IMPORTED_MODULE_0__["default"]).$mount();
       
 
 /***/ }),
@@ -14431,119 +14445,77 @@ module.exports = QQMapWX;
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("./node_modules/megalo/dist/megalo.mp.esm.js");
-/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("./node_modules/vuex/dist/vuex.esm.js");
-/* harmony import */ var _modules_home__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__("./src/store/modules/home/index.js");
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("./node_modules/vuex/dist/vuex.esm.js");
+/* harmony import */ var _user__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("./src/store/user.js");
+/* harmony import */ var _systemInfo__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__("./src/store/systemInfo.js");
 
 
 
-vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_1__["default"]);
-/* harmony default export */ __webpack_exports__["default"] = (new vuex__WEBPACK_IMPORTED_MODULE_1__["default"].Store({
+/* harmony default export */ __webpack_exports__["default"] = (new vuex__WEBPACK_IMPORTED_MODULE_0__["default"].Store({
   modules: {
-    home: _modules_home__WEBPACK_IMPORTED_MODULE_2__["default"]
-  },
-  state: {},
-  mutations: {}
-}));
-
-/***/ }),
-
-/***/ "./src/store/modules/home/actionTypes.js":
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "GET_SYSTMINFO", function() { return GET_SYSTMINFO; });
-// 手机型号
-var GET_SYSTMINFO = 'GET_SYSTMINFO';
-
-/***/ }),
-
-/***/ "./src/store/modules/home/actions.js":
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _actionTypes__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("./src/store/modules/home/actionTypes.js");
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-
-/* harmony default export */ __webpack_exports__["default"] = (_defineProperty({}, _actionTypes__WEBPACK_IMPORTED_MODULE_0__["GET_SYSTMINFO"], function (_ref, value) {
-  var commit = _ref.commit,
-      state = _ref.state;
-  return new Promise(function (resolve, reject) {
-    if (state.systemInfos.model) {
-      resolve(state.systemInfos);
-    } else {
-      wx.getSystemInfo({
-        success: function success(res) {
-          state.systemInfos = res;
-          commit('GET_SYSTMINFO', res);
-          resolve(res);
-        },
-        fail: function fail(err) {
-          reject(err);
-        }
-      });
-    }
-  });
-}));
-
-/***/ }),
-
-/***/ "./src/store/modules/home/getters.js":
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ({
-  systemInfos: function systemInfos(state) {
-    return state.systemInfos;
+    user: _user__WEBPACK_IMPORTED_MODULE_1__["user"],
+    systemInfo: _systemInfo__WEBPACK_IMPORTED_MODULE_2__["systemInfo"]
   }
-});
-
-/***/ }),
-
-/***/ "./src/store/modules/home/index.js":
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _actions__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("./src/store/modules/home/actions.js");
-/* harmony import */ var _mutations__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("./src/store/modules/home/mutations.js");
-/* harmony import */ var _getters__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__("./src/store/modules/home/getters.js");
-
-
-
-/* harmony default export */ __webpack_exports__["default"] = ({
-  namespaced: true,
-  getters: _getters__WEBPACK_IMPORTED_MODULE_2__["default"],
-  state: {
-    systemInfos: {}
-  },
-  actions: _actions__WEBPACK_IMPORTED_MODULE_0__["default"],
-  mutations: _mutations__WEBPACK_IMPORTED_MODULE_1__["default"]
-});
-
-/***/ }),
-
-/***/ "./src/store/modules/home/mutations.js":
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _actionTypes__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("./src/store/modules/home/actionTypes.js");
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-
-/* harmony default export */ __webpack_exports__["default"] = (_defineProperty({}, _actionTypes__WEBPACK_IMPORTED_MODULE_0__["GET_SYSTMINFO"], function (state, value) {
-  state.systemInfos = value;
 }));
 
 /***/ }),
 
-/***/ "./src/store1/user.js":
+/***/ "./src/store/systemInfo.js":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "GET_SYSTEMINFO_SUCCESS", function() { return GET_SYSTEMINFO_SUCCESS; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "systemInfo", function() { return systemInfo; });
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+var GET_SYSTEMINFO_SUCCESS = 'GET_SYSTEMINFO_SUCCESS';
+var state = {
+  systemInfo: ''
+};
+
+var mutations = _defineProperty({}, GET_SYSTEMINFO_SUCCESS, function (state, systemInfo) {
+  state.systemInfo = systemInfo;
+});
+
+var actions = {
+  getSystemInfo: function getSystemInfo(_ref) {
+    var commit = _ref.commit,
+        state = _ref.state;
+    return new Promise(function (resolve, reject) {
+      console.log(state);
+
+      if (state.systemInfo) {
+        resolve(state.systemInfo);
+      } else {
+        wx.getSystemInfo({
+          success: function success(res) {
+            commit('GET_SYSTEMINFO_SUCCESS', res);
+            resolve(res);
+          },
+          fail: function fail(err) {
+            reject(err);
+          }
+        });
+      }
+    });
+  }
+};
+var getters = {
+  isIphoneX: function isIphoneX(state) {
+    return state.systemInfo ? state.systemInfo.model.includes("iPhone X") : false;
+  }
+};
+var systemInfo = {
+  state: state,
+  getters: getters,
+  actions: actions,
+  mutations: mutations
+};
+
+/***/ }),
+
+/***/ "./src/store/user.js":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";

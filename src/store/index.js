@@ -1,15 +1,10 @@
-import Vue from 'vue'
 import Vuex from 'vuex'
-import home from './modules/home'
-
-Vue.use(Vuex)
+import { user } from './user'
+import  { systemInfo }  from './systemInfo'
 
 export default new Vuex.Store({
-    modules: {
-        home
-    },
-    state: {},
-    mutations: {
-
-    }
+  modules: {
+    user,
+    systemInfo
+  }
 })
