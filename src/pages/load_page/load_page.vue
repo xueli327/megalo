@@ -21,8 +21,6 @@
         <van-button size="large" type="info" open-type="getUserInfo"  @getuserinfo="bindGetUserInfo">微信登录</van-button>
        </div>
       </van-popup>
-
-     
     </div>
   </div>
 </template>

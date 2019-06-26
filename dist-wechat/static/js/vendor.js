@@ -1104,6 +1104,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _mixins_countDown__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("./src/mixins/countDown.js");
 //
 //
 //
@@ -1121,13 +1122,15 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+
 /* harmony default export */ __webpack_exports__["default"] = ({
-  components: {},
   data: function data() {
     return {
       imgUrls: ['https://images.unsplash.com/photo-1551334787-21e6bd3ab135?w=640', 'https://images.unsplash.com/photo-1551214012-84f95e060dee?w=640', 'https://images.unsplash.com/photo-1551446591-142875a901a1?w=640']
     };
   },
+  components: {},
+  mixins: [_mixins_countDown__WEBPACK_IMPORTED_MODULE_0__["default"]],
   beforeCreate: function beforeCreate() {},
   created: function created() {},
   beforeMount: function beforeMount() {},
@@ -1139,7 +1142,8 @@ __webpack_require__.r(__webpack_exports__);
     console.log("Page [my] onReady");
   },
   onShow: function onShow() {
-    // Do something when page show.
+    this.getCountDown('1561626799', 'day'); // Do something when page show.
+
     console.log("Page [my] onShow");
   },
   onHide: function onHide() {
@@ -1324,8 +1328,6 @@ var qqmapsdk;
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _mixins_login__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("./src/mixins/login.js");
-//
-//
 //
 //
 //
@@ -13167,6 +13169,52 @@ _vue.default.prototype.$store = store;
 _App.default.mpType = "app";
 var app = new _vue.default(_App.default);
 app.$mount();
+
+/***/ }),
+
+/***/ "./src/mixins/countDown.js":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      countDownTimes: ''
+    };
+  },
+  methods: {
+    getCountDown: function getCountDown(timestamp, type) {
+      setInterval(function () {
+        var nowTime = new Date();
+        var endTime = new Date(timestamp * 1000);
+        var t = endTime.getTime() - nowTime.getTime();
+        var d = Math.floor(t / 1000 / 60 / 60 / 24);
+        var hour = Math.floor(t / 1000 / 60 / 60 % 24);
+        var min = Math.floor(t / 1000 / 60 % 60);
+        var sec = Math.floor(t / 1000 % 60);
+
+        if (hour < 10) {
+          hour = "0" + hour;
+        }
+
+        if (min < 10) {
+          min = "0" + min;
+        }
+
+        if (sec < 10) {
+          sec = "0" + sec;
+        }
+
+        if (type === 'noday') {
+          this.countDownTimes = hour + "时" + min + "分" + sec + '秒';
+        } else if (type === 'day') {
+          this.countDownTimes = d + '天' + hour + "时" + min + "分" + sec + '秒';
+        }
+      }, 1000);
+    }
+  }
+});
 
 /***/ }),
 
