@@ -1,5 +1,0 @@
-<import src="../components/slots.wxml" />
-<import src="../components/tabbar$549babd6.wxml" />
-<template name="my$7a177efa"><view class="_div app {{ h[ 0 ].rcl }} {{p}}">
-   个人中心
-       <template is="tabbar$549babd6" data="{{ ...$root[ cp + 0 + (_t || '') ], $root, _t: _t || '',p:p||'' }}" /></view></template>

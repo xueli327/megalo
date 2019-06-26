@@ -1,4 +1,0 @@
-<import src="../components/slots.wxml" />
-<template name="load_page$6e3db856"><view class="_div app {{ h[ 0 ].rcl }} {{p}}"><view hidden="{{ h[ 1 ].vs }}" class="_div"><van-loading class="_van-loading" type="spinner" size="50px"></van-loading></view><view hidden="{{ h[ 3 ].vs }}" class="_div"><van-popup class="_van-popup" show="{{ h[ 4 ].show }}"><view class="_div content">
-          登录后即可操作
-      <van-button class="_van-button" size="large" type="info" open-type="getUserInfo" data-cid="{{ _c || c }}" data-hid="{{ 7 }}" bindgetuserinfo="_pe">微信登录</van-button></view></van-popup></view></view></template>

@@ -1,2 +1,0 @@
-<import src="../components/slots.wxml" />
-<template name="position$b0353e3a"><view class="_div {{ h[ 0 ].rcl }} {{p}}" id="map-wrap"><map class="_map" style="width:100%; height:300px" id="qqMap" latitude="{{ h[ 1 ].latitude }}" longitude="{{ h[ 1 ].longitude }}" show-location="true"></map></view></template>

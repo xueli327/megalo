@@ -108,7 +108,7 @@ export default {
   methods: {
     linkto (e) {
       let id = e.currentTarget.id
-      this.$router.push({ path: '/pages/detail/detail', query: { id } })
+      this.$router.push({ path: '/pages/user/detail/detail', query: { id } })
 
     }
   }

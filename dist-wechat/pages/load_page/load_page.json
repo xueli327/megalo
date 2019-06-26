@@ -1,9 +1,0 @@
-{
-  "usingComponents": {
-    "van-loading": "../../native/vant/loading/index",
-    "van-button": "../../native/vant/button/index",
-    "van-popup": "../../native/vant/popup/index"
-  },
-  "navigationBarBackgroundColor": "#ffffff",
-  "navigationBarTitleText": "加载中..."
-}
