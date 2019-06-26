@@ -1,5 +1,11 @@
 <import src="../components/slots.wxml" />
-<import src="../components/tabbar$549babd6.wxml" />
-<template name="my$7a177efa"><view class="_div app {{ h[ 0 ].rcl }} {{p}}">
-   个人中心
-       <template is="tabbar$549babd6" data="{{ ...$root[ cp + 0 + (_t || '') ], $root, _t: _t || '',p:p||'' }}" /></view></template>
+<import src="../components/tabBar$549b33b6.wxml" />
+<template name="my$7a177efa"><view class="_div center_wrap {{ h[ 0 ].rcl }} {{p}}"><view class="_div top"><image class="_img avator" src="https://user-images.githubusercontent.com/20720117/48262986-80e02780-e45f-11e8-8426-2872916adad9.png" alt="true"></image><view class="_p">用户名</view></view><view class="_div phone">
+    手机号
+    <van-icon class="_van-icon" name="arrow"></van-icon><button class="_button button" open-type="getPhoneNumber" data-cid="{{ _c || c }}" data-hid="{{ 8 }}" bindgetphonenumber="_pe">未绑定</button></view><view class="_div order"><view class="_div top"><view class="_div">
+        我的订单
+      </view><view class="_div">
+        查看全部
+        <van-icon class="_van-icon" name="arrow"></van-icon></view></view></view><van-popup class="_van-popup model" show="{{ h[ 17 ].show }}"><view class="_div inner-box"><view class="_div title">
+        绑定手机号
+      </view><view class="_div enter_phone"><input class="_input" type="text" placeholder="输入手机号" value="{{ h[ 22 ].value }}" data-cid="{{ _c || c }}" data-hid="{{ 22 }}" bindinput="_pe"></input><button class="_button" data-cid="{{ _c || c }}" data-hid="{{ 23 }}" bindtap="_pe">{{ h[ 24 ].t }}</button></view></view></van-popup><template is="tabBar$549b33b6" data="{{ ...$root[ cp + 0 + (_t || '') ], $root, _t: _t || '',p:p||'' }}" /></view></template>

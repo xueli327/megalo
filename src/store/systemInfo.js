@@ -14,12 +14,12 @@ const actions = {
         state
     }) {
         return new Promise((resolve, reject) => {
-            console.log(state)
             if (state.systemInfo) {
                 resolve(state.systemInfo)
             } else {
                 wx.getSystemInfo({
                     success(res) {
+                        console.log('jjjjjjjjj')
                         commit('GET_SYSTEMINFO_SUCCESS', res)
                         resolve(res)
                     },
@@ -35,11 +35,12 @@ const actions = {
 
 const getters = {
     isIphoneX: state => {
+        console.log(state, 'isIphoneX')
         return state.systemInfo ? state.systemInfo.model.includes("iPhone X") : false
     }
 
 }
-export const systemInfo = {
+export default {
     state,
     getters,
     actions,

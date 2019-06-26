@@ -16,22 +16,28 @@
       </view>
   </picker>
     <div>
-      {{isIphonex}}
+      {{isIphonex}}--------{{systemInfo}}
     </div>
     <tab-bar :selectNavIndex="0"></tab-bar>
   </div>
 </template>
 <script>
-import tabBar from "@/components/tabbar";
+import tabBar from "@/components/tabBar";
 import { mapGetters, mapActions, mapMutations } from "vuex";
 import { SET_APP_ID, SET_USER_INFO } from "@/store/user";
-import { GET_SYSTEMINFO_SUCCESS } from "@/store/systemInfo";
+// import { getSystemInfo } from "@/store/systemInfo";
 var QQMapWX = require("../../static/qqmap-wx-jssdk.js");
 var dateTimePicker = require("../../utils/dateTimePicker.js");
 var qqmapsdk;
 export default {
   components: {
     tabBar
+  },
+  computed: {
+    ...mapGetters([
+      'systemInfo',
+      'isIphoneX'
+    ])
   },
   data() {
     return {
@@ -47,15 +53,11 @@ export default {
       endYear: 2050
     };
   },
-  computed: {
-    isIphonex() {
-      console.log(this.getSystemInfo());
-    }
-  },
   beforeCreate() {
     console.log("Page [my] Vue beforeCreate");
   },
   created() {
+    console.log(this.isIphonex,'this.isIphonex')
     var obj = dateTimePicker.dateTimePicker(
       this._data.startYear,
       this._data.endYear
@@ -79,7 +81,7 @@ export default {
   // },
   onLoad(options) {
     let that = this;
-
+    console.log(this.getSystemInfo())
     // **********地图的调用*********** //
     qqmapsdk = new QQMapWX({
       key: "HEEBZ-VQRLX-C334C-7JZ3J-YBT52-W4BC2" // 必填
@@ -91,6 +93,7 @@ export default {
         that.longitude = res.longitude;
       }
     });
+
     // Do some initialize when page load.
     console.log("Page [my] onLoad");
     this.$flyio
@@ -126,9 +129,9 @@ export default {
    * for other event handlers, please check https://developers.weixin.qq.com/miniprogram/dev/framework/app-service/page.html
    */
   methods: {
-    ...mapMutations({
-      getSystemInfo: GET_SYSTEMINFO_SUCCESS
-    }),
+    ...mapActions[
+      'getSystemInfo'
+    ],
     onInput(event) {},
     linkto() {
       this.$router.push("/pages/agreement/agreement");
