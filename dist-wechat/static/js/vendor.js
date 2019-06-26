@@ -288,6 +288,7 @@ var render = function() {
                 "van-card",
                 {
                   attrs: {
+                    id: item.tag,
                     tag: item.tag,
                     price: item.price,
                     desc: item.desc,
@@ -307,16 +308,7 @@ var render = function() {
                       attrs: { slot: "footer", h_: 5, f_: f_ },
                       slot: "footer"
                     },
-                    [
-                      _c(
-                        "van-button",
-                        {
-                          attrs: { h_: 6, f_: f_ },
-                          on: { click: _vm.getSystemInfo }
-                        },
-                        []
-                      )
-                    ],
+                    [_c("van-button", { attrs: { h_: 6, f_: f_ } }, [])],
                     1
                   )
                 ]
@@ -350,7 +342,31 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { attrs: { sc_: "v-45060468", h_: 0 } }, [])
+  return _c(
+    "div",
+    { attrs: { sc_: "v-45060468", h_: 0 } },
+    [
+      _c(
+        "swiper",
+        { attrs: { h_: 2 } },
+        _vm._l(
+          _vm.imgUrls,
+          function(item, idx, item_i2) {
+            var f_ = item_i2 !== undefined ? item_i2 : idx
+            return _c(
+              "swiper-item",
+              { key: idx, attrs: { h_: 3, f_: f_, k_: "idx" } },
+              [_c("img", { attrs: { src: item, h_: 4, f_: f_ } })]
+            )
+          },
+          [3],
+          _vm._self
+        ),
+        1
+      )
+    ],
+    1
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -1047,11 +1063,11 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   created: function created() {},
   beforeMount: function beforeMount() {},
   mounted: function mounted() {},
-  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapGetters"])(['isIphoneX'])),
+  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapGetters"])(["isIphoneX"])),
   onLoad: function onLoad(options) {
     this.getSystemInfo();
-    console.log(' this.$store', this.$store);
-    console.log('isIphoneX', this.isIphoneX);
+    console.log(" this.$store", this.$store);
+    console.log("isIphoneX", this.isIphoneX);
   },
   onReady: function onReady() {
     // Do something when page ready.
@@ -1066,10 +1082,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     console.log("Page [my] onHide");
   },
   onUnload: function onUnload() {},
-  methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])(['getSystemInfo']), {
+  methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])(["getSystemInfo"]), {
     // linkto: throttle(this.linkto),
     linkto: function linkto(e) {
-      console.log('qaaaaaaaaa', e);
+      console.log("qaaaaaaaaa", e);
       var id = e.currentTarget.id;
       this.$router.push({
         path: "/pages/assemble/assembleDetail",
@@ -1101,10 +1117,16 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {},
   data: function data() {
-    return {};
+    return {
+      imgUrls: ['https://images.unsplash.com/photo-1551334787-21e6bd3ab135?w=640', 'https://images.unsplash.com/photo-1551214012-84f95e060dee?w=640', 'https://images.unsplash.com/photo-1551446591-142875a901a1?w=640']
+    };
   },
   beforeCreate: function beforeCreate() {},
   created: function created() {},

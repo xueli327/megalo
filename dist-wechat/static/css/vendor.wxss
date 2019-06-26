@@ -7,7 +7,18 @@
  .assemble_wrapper .pic, .assemble_wrapper .title_hq {
   margin-top: 20rpx;
 }
-
+ .assemble_detail_wrapper .slider-wrapper {
+  width: 100%;
+  height: 200rpx;
+}
+ .assemble_detail_wrapper .slider-wrapper .slide-item ._img {
+  width: 100%;
+  height: 100%;
+}
+ .assemble_detail_wrapper .slider-wrapper .slide-item img {
+  width: 100%;
+  height: 100%;
+}
 .app {
   text-align: center;
   margin-top: 290rpx;

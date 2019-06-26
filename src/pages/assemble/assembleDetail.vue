@@ -8,16 +8,26 @@
 <template>
   <div class="assemble_detail_wrapper">
     商品详情
-
-  </div>
+    <swiper circular="true" class="slider-wrapper" autoplay="true" duration="1000" indicator-dots="true">
+        <swiper-item class="slide-item" v-for="(item,idx) in imgUrls" :key="idx">
+            <img :src="item"/>
+        </swiper-item>
+    </swiper>
+  </div> 
 </template>
 <script>
 export default {
   components: {
-    
+      
   },
   data() {
-    return {};
+    return {
+    imgUrls: [
+        'https://images.unsplash.com/photo-1551334787-21e6bd3ab135?w=640',
+        'https://images.unsplash.com/photo-1551214012-84f95e060dee?w=640',
+        'https://images.unsplash.com/photo-1551446591-142875a901a1?w=640'
+        ]
+    };
   },
   beforeCreate() {},
   created() {},
@@ -45,5 +55,13 @@ export default {
 
 <style lang="scss" scoped>
 /deep/ .assemble_detail_wrapper {
+    .slider-wrapper{
+        width: 100%;
+        height: 200px;
+        .slide-item img{
+            width: 100%;
+            height:100%;
+        }
+    }
 }
 </style>

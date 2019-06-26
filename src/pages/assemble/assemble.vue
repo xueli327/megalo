@@ -11,7 +11,7 @@
     <h2>拼团推荐</h2>
     <div v-for="(item,idx) in list" class="assemble_main" :key="idx">
       <van-card
-        id="item.tag"
+        :id="item.tag"
         :tag="item.tag"
         :price="item.price"
         :desc="item.desc"
@@ -28,24 +28,23 @@
         @click="linkto"
         >
         <div slot="footer">
-          <van-button size="mini" @click="getSystemInfo">5人团</van-button>
+          <van-button size="mini">5人团</van-button>
         </div>
       </van-card>
     </div>
   </div>
 </template>
 <script>
-import { mapGetters,mapActions } from 'vuex'
-import throttle from '@/utils/throttle'
+import { mapGetters, mapActions } from "vuex";
+import throttle from "@/utils/throttle";
 
 export default {
-  components: {
-  },
+  components: {},
   data() {
     return {
       list: [
         {
-          title:"商品名称",
+          title: "商品名称",
           tag: "商品",
           desc: "商品描述",
           price: 100,
@@ -54,7 +53,7 @@ export default {
             "https://user-images.githubusercontent.com/20720117/48262986-80e02780-e45f-11e8-8426-2872916adad9.png"
         },
         {
-          title:"商品名称",
+          title: "商品名称",
           tag: "商品",
           desc: "商品描述",
           price: 100,
@@ -62,29 +61,23 @@ export default {
           imageURL:
             "https://user-images.githubusercontent.com/20720117/48262986-80e02780-e45f-11e8-8426-2872916adad9.png"
         }
-      ],
+      ]
     };
   },
   beforeCreate() {
     console.log("Page [my] Vue beforeCreate");
   },
-  created() {
-    
-  },
+  created() {},
   beforeMount() {},
   mounted() {},
   computed: {
-    ...mapGetters([
-      'isIphoneX'
-    ])
+    ...mapGetters(["isIphoneX"])
   },
   onLoad(options) {
-       this.getSystemInfo()
-        console.log(' this.$store', this.$store);
-     
-      console.log('isIphoneX',this.isIphoneX);
-      
-   
+    this.getSystemInfo();
+    console.log(" this.$store", this.$store);
+
+    console.log("isIphoneX", this.isIphoneX);
   },
   onReady() {
     // Do something when page ready.
@@ -101,33 +94,32 @@ export default {
   onUnload() {},
 
   methods: {
-    ...mapActions([
-      'getSystemInfo'
-    ]),
+    ...mapActions(["getSystemInfo"]),
     // linkto: throttle(this.linkto),
     linkto(e) {
-        console.log('qaaaaaaaaa',e);
-        
+      console.log("qaaaaaaaaa", e);
+
       let id = e.currentTarget.id;
-      this.$router.push({ path: "/pages/assemble/assembleDetail", query: { id } });
+      this.$router.push({
+        path: "/pages/assemble/assembleDetail",
+        query: { id }
+      });
     }
-  },
-  
+  }
 };
 </script>
 
 <style lang="scss" scoped>
-/deep/ .assemble_wrapper{
-    .desc{
-        margin: 20px 0 10px 0;
-    }
-    .custom{
-         margin-bottom: 20px;
-    }
-    .pic,
-    .title_hq{
-        margin-top: 20px;
-    }
+/deep/ .assemble_wrapper {
+  .desc {
+    margin: 20px 0 10px 0;
+  }
+  .custom {
+    margin-bottom: 20px;
+  }
+  .pic,
+  .title_hq {
+    margin-top: 20px;
+  }
 }
-    
 </style>
