@@ -2,7 +2,7 @@
   <div class="tabbar-wrap" :class="isIphoneX? 'isIphoneX':''">
       <ul class="tabbar">
           <li class="tabbar-item" v-for="(item, index) in navList" 
-          :key="index" 
+          :key="index"      
           @click="selectNavItem(index, item.pagePath)"
           :class="item.isSpecial ? 'wrapSpecial':''">
               <p class="tabbar-icon" >
