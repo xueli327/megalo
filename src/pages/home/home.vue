@@ -26,7 +26,6 @@ import tabBar from "@/components/tabbar";
 import { mapGetters, mapActions, mapMutations } from "vuex";
 import { SET_APP_ID, SET_USER_INFO } from "@/store/user";
 import { GET_SYSTEMINFO_SUCCESS } from "@/store/systemInfo";
-console.log(GET_SYSTEMINFO_SUCCESS, "systemInfo");
 var QQMapWX = require("../../static/qqmap-wx-jssdk.js");
 var dateTimePicker = require("../../utils/dateTimePicker.js");
 var qqmapsdk;

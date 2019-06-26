@@ -884,7 +884,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 
-console.log(_store_systemInfo__WEBPACK_IMPORTED_MODULE_3__["GET_SYSTEMINFO_SUCCESS"], "systemInfo");
 
 var QQMapWX = __webpack_require__("./src/static/qqmap-wx-jssdk.js");
 
