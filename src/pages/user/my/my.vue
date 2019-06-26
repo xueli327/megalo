@@ -1,8 +1,8 @@
 <config>
 {
   "usingComponents": {
-     "van-icon": "../../native/vant/icon/index",
-     "van-popup": "../../native/vant/popup/index"
+     "van-icon": "../../../native/vant/icon/index",
+     "van-popup": "../../../native/vant/popup/index"
   },
    navigationBarTitleText:"我的"
 }

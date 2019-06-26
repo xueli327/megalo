@@ -1,8 +1,8 @@
 <config>
 {
   "usingComponents": {
-    "van-card": "../../native/vant/card/index",
-    "van-button": "../../native/vant/button/index"
+    "van-card": "../../../native/vant/card/index",
+    "van-button": "../../../native/vant/button/index"
   }
 }
 </config>

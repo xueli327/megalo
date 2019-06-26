@@ -4,7 +4,7 @@
     </div>
 </template>
 <script>
-var QQMapWX = require("../../static/qqmap-wx-jssdk.js");
+var QQMapWX = require("../../../static/qqmap-wx-jssdk.js");
 var qqmapsdk;
 
 export default {
