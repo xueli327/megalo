@@ -1,5 +1,7 @@
 {
   "pages": [
+    "pages/assemble/assemble",
+    "pages/assemble/assembleDetail",
     "pages/load_page/load_page",
     "pages/home/home",
     "pages/my/my",

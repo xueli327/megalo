@@ -1,3 +1,13 @@
+ .assemble_wrapper .desc {
+  margin: 20rpx 0 10rpx 0;
+}
+ .assemble_wrapper .custom {
+  margin-bottom: 20rpx;
+}
+ .assemble_wrapper .pic, .assemble_wrapper .title_hq {
+  margin-top: 20rpx;
+}
+
 .app {
   text-align: center;
   margin-top: 290rpx;

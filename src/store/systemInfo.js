@@ -20,6 +20,8 @@ const actions = {
             } else {
                 wx.getSystemInfo({
                     success(res) {
+                        console.log('res',res);
+                        
                         commit('GET_SYSTEMINFO_SUCCESS', res)
                         resolve(res)
                     },
@@ -39,7 +41,7 @@ const getters = {
     }
 
 }
-export const systemInfo = {
+export default {
     state,
     getters,
     actions,
