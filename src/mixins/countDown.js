@@ -2,15 +2,15 @@
 export default {
     data(){
         return{
-            countDownTimes:''
+            countDownTimes: '阿斯顿法国红酒和割发代首'
         }
     },
     methods: {
         getCountDown(timestamp,type) {
+            let that=this
              setInterval(function () {
                  var nowTime = new Date();
                  var endTime = new Date(timestamp * 1000);
-
                  var t = endTime.getTime() - nowTime.getTime();
                  var d=Math.floor(t/1000/60/60/24);
                  var hour = Math.floor(t / 1000 / 60 / 60 % 24);
@@ -27,12 +27,14 @@ export default {
                      sec = "0" + sec;
                  }
                  if (type==='noday'){
-                    this.countDownTimes =  hour + "时" + min + "分" + sec + '秒'
+                    that.countDownTimes =  hour + "时" + min + "分" + sec + '秒'
                  } else if (type === 'day'){
-                     this.countDownTimes = d + '天' + hour + "时" + min + "分" + sec + '秒'
+                     console.log('daydaydayday');
+                    that.countDownTimes = d + '天' + hour + "时" + min + "分" + sec + '秒'
                  }
-                 
+                 console.log('countDownTimes', that.countDownTimes);
              }, 1000);
+            
         }
     }
 }

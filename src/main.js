@@ -24,7 +24,7 @@ export default {
       'pages/user/my/my',
       'pages/user/position/position',
       'pages/user/agreement/agreement',
-      'page/user/assemble/assemble'
+      'pages/user/assemble/assemble'
     ],
     "permission": {
       "scope.userLocation": {
