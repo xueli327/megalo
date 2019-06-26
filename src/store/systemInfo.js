@@ -19,12 +19,8 @@ const actions = {
             } else {
                 wx.getSystemInfo({
                     success(res) {
-<<<<<<< HEAD
-                        console.log('jjjjjjjjj')
-=======
                         console.log('res',res);
                         
->>>>>>> da3f8296be65e549abc2a06b7df54a3b6dd7526d
                         commit('GET_SYSTEMINFO_SUCCESS', res)
                         resolve(res)
                     },

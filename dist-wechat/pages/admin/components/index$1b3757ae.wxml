@@ -1,3 +1,0 @@
-<import src="../../../components/slots.wxml" />
-<import src="../../../components/adminTabbar$1624e815.wxml" />
-<template name="index$1b3757ae"><view class="_div app {{ h[ 0 ].rcl }} {{p}}"><editor class="_editor ql-container" id="editor" placeholder="xiaochengxv" showImgSize="true" showImgToolbar="true" showImgResize="true" bindstatuschange="onStatusChange" bindready="onEditorReady"></editor><template is="adminTabbar$1624e815" data="{{ ...$root[ cp + 0 + (_t || '') ], $root, _t: _t || '',p:p||'' }}" /></view></template>

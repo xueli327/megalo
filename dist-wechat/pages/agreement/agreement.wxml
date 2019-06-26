@@ -1,2 +1,0 @@
-<import src="../../components/agreement$110a90d9.wxml" />
-<template is="agreement$110a90d9" data="{{ ...$root['0'], $root }}"/>
