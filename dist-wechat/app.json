@@ -24,6 +24,5 @@
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "megalo project",
     "navigationBarTextStyle": "black"
-  },
-  "sitemapLocation": "sitemap.json"
+  }
 }

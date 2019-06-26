@@ -20,9 +20,7 @@
 </template>
 
 <script>
-import store from "../store/getSystemInfo";
 import { mapGetters } from "vuex";
-import { GET_SYSTEMINFO_SUCCESS } from "../store/getSystemInfo";
 //console.log(systemInfo,'systemInfo*******systemInfo*****')
 // import { close } from 'fs';
 export default {

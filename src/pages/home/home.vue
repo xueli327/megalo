@@ -21,6 +21,9 @@
 </template>
 <script>
 import tabBar from "@/components/tabbar";
+import { mapGetters, mapActions } from "vuex";
+import * as types from "../../store/modules/home/actionTypes";
+
 var QQMapWX = require("../../static/qqmap-wx-jssdk.js");
 var dateTimePicker = require("../../utils/dateTimePicker.js");
 var qqmapsdk;
@@ -64,6 +67,9 @@ export default {
   },
   beforeMount() {},
   mounted() {},
+  computed: {
+    ...mapGetters("home", ["systemInfos"])
+  },
   onLoad(options) {
     let that = this;
 
@@ -80,6 +86,18 @@ export default {
     });
     // Do some initialize when page load.
     console.log("Page [my] onLoad");
+      this.$flyio
+      .get("http://192.144.205.76:8081/gift/list")
+      .then(d => {
+        //输出请求数据
+        this[types.GET_SYSTMINFO]();
+        console.log("获取手机型号", this.systemInfos);
+        //输出响应头
+        console.log(d.header);
+      })
+      .catch(err => {
+        console.log(err.status, err.message);
+      });
   },
   onReady() {
     // Do something when page ready.
@@ -101,6 +119,7 @@ export default {
    * for other event handlers, please check https://developers.weixin.qq.com/miniprogram/dev/framework/app-service/page.html
    */
   methods: {
+    ...mapActions("home", [types.GET_SYSTMINFO]),
     onInput(event) {},
     linkto () {
       this.$router.push('/pages/agreement/agreement')

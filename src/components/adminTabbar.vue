@@ -20,12 +20,9 @@
 </template>
 
 <script>
-import store from "../store/getSystemInfo";
 import { mapMutations } from "vuex";
-import { systemInfo } from "../store/getSystemInfo";
 
 // import { close } from 'fs';
-console.log(systemInfo);
 export default {
   props: ["selectNavIndex"],
   computed: {

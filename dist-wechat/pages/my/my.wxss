@@ -1,3 +1,2 @@
 @import "../../htmlparse/index.wxss";
-@import "../../static/css/common.wxss";
-@import "../../static/css/pages/my/my.wxss"
+@import "../../static/css/vendor.wxss"
