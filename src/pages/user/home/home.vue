@@ -134,7 +134,7 @@ export default {
     ],
     onInput(event) {},
     linkto() {
-      this.$router.push("/pages/agreement/agreement");
+      this.$router.push("/pages/user/agreement/agreement");
     },
     changeDateTime1(e) {
       this._data.dateTime1 = e.detail.value;
@@ -152,7 +152,7 @@ export default {
     },
     getScancode() {
       this.$router.push({
-        path: "/pages/position/position",
+        path: "/pages/user/position/position",
         query: { latitude: this.latitude, longitude: this.longitude }
       });
     }

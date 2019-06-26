@@ -1,6 +1,6 @@
 (global["webpackJsonp"] = global["webpackJsonp"] || []).push([["pages/position/position"],{
 
-/***/ 4:
+/***/ 6:
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__("./src/pages/position/position.vue");
@@ -8,5 +8,5 @@ module.exports = __webpack_require__("./src/pages/position/position.vue");
 
 /***/ })
 
-},[[4,"runtime","vendor"]]]);
+},[[6,"runtime","vendor"]]]);
 //# sourceMappingURL=position.js.map
