@@ -6,46 +6,45 @@
 </config>
 <template>
   <div class="assemble_detail_wrapper">
-    商品详情
-    <swiper circular="true" class="slider-wrapper" autoplay="true" duration="1000" indicator-dots="true">
-        <swiper-item class="slide-item" v-for="(item,idx) in imgUrls" :key="idx">
-            <img :src="item"/>
-        </swiper-item>
-    </swiper>
-    <div class="message">
-      <span class="price">79.90</span>
-      <div class="tag">8人团</div>
-      <countDown :times='times' :type='type'></countDown>
-    </div>
+    <activeBanner></activeBanner>
+    <lackPeoples></lackPeoples><!-- 参团详情才显示lackPeoples -->
+    <goodsDetail></goodsDetail>
+    <playStep></playStep>
+    <playDirection></playDirection>
+    <playDetail></playDetail>
+    <shopArea></shopArea>
   </div> 
 </template>
 <script>
-import countDown from "@/components/countDown";
+import activeBanner from "@/components/assembles/activeBanner";
+import lackPeoples from "@/components/assembles/lackPeoples";
+import goodsDetail from "@/components/assembles/goodsDetail";
+import playStep from "@/components/assembles/playStep";
+import playDirection from '@/components/assembles/playDirection'
+import playDetail from '@/components/assembles/playDetail'
+import shopArea from '@/components/assembles/shopArea'
+
+
+
 export default {
   data() {
     return {
-    times:'1561626799',
-    type:'day',
-    imgUrls: [
-        'https://images.unsplash.com/photo-1551334787-21e6bd3ab135?w=640',
-        'https://images.unsplash.com/photo-1551214012-84f95e060dee?w=640',
-        'https://images.unsplash.com/photo-1551446591-142875a901a1?w=640'
-        ]
     };
   },
   components: {
-      countDown
+    activeBanner,
+    lackPeoples,
+    goodsDetail,
+    playStep,
+    playDirection,
+    playDetail,
+    shopArea
   },
-  watch:{
-    },
+  watch: {},
   beforeCreate() {},
-  created() {
-   
-  },
+  created() {},
   beforeMount() {},
-  mounted() {
-   
-  },
+  mounted() {},
   computed: {},
   onLoad(options) {},
   onReady() {
@@ -53,11 +52,6 @@ export default {
     console.log("Page [my] onReady");
   },
   onShow() {
-     
-      
-   
-     
-      
     // Do something when page show.
     console.log("Page [my] onShow");
   },
@@ -73,28 +67,20 @@ export default {
 
 <style lang="scss" scoped>
 /deep/ .assemble_detail_wrapper {
-    .slider-wrapper{
-        width: 100%;
-        height: 400px;
-        .slide-item img{
-            width: 100%;
-            height:100%;
-        }
-    }
-    .message{
-      width: 100%;
-      height: 80px;
+  .play_way,
+  .play_direction,
+  .good_detail,
+  .play_detail{
+    margin-bottom: 20px;
+  }
+  .play_way_name {
+      height: 60px;
       display: flex;
       align-items: center;
-      background: #ccc;
-      justify-content: space-around;
-      .tag{
-        width: 100px;
-        height: 50px;
-        line-height: 50px;
-        text-align: center;
-        background: #666;
-      }
+      padding: 0 20px;
+      box-sizing: border-box;
+      justify-content: space-between;
+      border-bottom: 2px solid #ccc;
     }
 }
 </style>
