@@ -32,6 +32,7 @@ export default {
 <style lang="scss">
   page{
     background: #F5F5F5;
+    font-family: PingFangSC-Medium;
   }
 </style>
 
