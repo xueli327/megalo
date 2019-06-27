@@ -25,6 +25,7 @@
 </template>
 <script>
 import tabBar from "@/components/tabBar";
+import login from '@/mixins/login'
 import { mapGetters, mapActions, mapMutations } from "vuex";
 import { SET_APP_ID, SET_USER_INFO } from "@/store/user";
 // import { getSystemInfo } from "@/store/systemInfo";
@@ -32,6 +33,7 @@ var QQMapWX = require("../../../static/qqmap-wx-jssdk.js");
 var dateTimePicker = require("../../../utils/dateTimePicker.js");
 var qqmapsdk;
 export default {
+  mixins:[login],
   components: {
     tabBar
   },
