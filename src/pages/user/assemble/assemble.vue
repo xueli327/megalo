@@ -1,15 +1,16 @@
 <config>
 {
   "usingComponents": {
-    "van-card": "../../native/vant/card/index",
-    "van-button": "../../native/vant/button/index"
-  }
+    "van-card": "../../../native/vant/card/index",
+    "van-button": "../../../native/vant/button/index"
+  },
+  navigationBarTitleText: '美小智'
 }
 </config>
 <template>
   <div class="assemble_wrapper">
-    <h2>拼团推荐</h2>
     <div v-for="(item,idx) in list" class="assemble_main" :key="idx">
+      <h3>奥利菲斯轻奢皮肤管理机构（方庄店）</h3>
       <van-card
         :id="item.tag"
         :tag="item.tag"
@@ -111,15 +112,37 @@ export default {
 
 <style lang="scss" scoped>
 /deep/ .assemble_wrapper {
-  .desc {
-    margin: 20px 0 10px 0;
-  }
-  .custom {
-    margin-bottom: 20px;
-  }
-  .pic,
-  .title_hq {
-    margin-top: 20px;
+  margin-top: 16px;
+  .assemble_main{
+    h3{
+      height: 37px;
+      background: #fff;
+      border: 1px solid #F5F5F5;
+      padding: 0 14px;
+      box-sizing: border-box;
+      line-height: 37px;
+      font-size: 15px;
+      color: #232628;
+    }
+    .custom {
+      height:114px;
+      margin-bottom: 20px;
+      background: #fff;
+      padding: 12px 14px 14px 14px;
+      box-sizing: border-box;
+    }
+    .title_hq{
+      font-size: 14px;
+    }
+    .pic{
+      width: 103px;
+      height: 87px;
+    }
+    .desc {
+      margin-bottom: 8px;
+      font-size: 12px;
+      color: #9B9B9B;
+    }
   }
 }
 </style>

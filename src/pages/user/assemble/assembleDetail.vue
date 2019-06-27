@@ -1,40 +1,50 @@
-<config>
-{
-  "usingComponents": {
-    "van-swipe-cell": "../../native/vant/swipe-cell/index"
-  }
-}
-</config>
 <template>
   <div class="assemble_detail_wrapper">
-    商品详情
-    <swiper circular="true" class="slider-wrapper" autoplay="true" duration="1000" indicator-dots="true">
-        <swiper-item class="slide-item" v-for="(item,idx) in imgUrls" :key="idx">
-            <img :src="item"/>
-        </swiper-item>
-    </swiper>
+    <activeBanner></activeBanner>
+    <lackPeoples></lackPeoples><!-- 参团详情才显示lackPeoples -->
+    <goodsDetail></goodsDetail>
+    <playStep></playStep>
+    <playDirection></playDirection>
+    <playDetail></playDetail>
+    <shopArea></shopArea>
+    <groupButton></groupButton>
   </div> 
 </template>
 <script>
-import countDown from "@/mixins/countDown";
+import activeBanner from "@/components/assembles/activeBanner";
+import lackPeoples from "@/components/assembles/lackPeoples";
+import goodsDetail from "@/components/assembles/goodsDetail";
+import playStep from "@/components/assembles/playStep";
+import playDirection from '@/components/assembles/playDirection'
+import playDetail from '@/components/assembles/playDetail'
+import shopArea from '@/components/assembles/shopArea'
+import groupButton from '@/components/assembles/groupButton'
+
+
+
 export default {
   data() {
     return {
-    imgUrls: [
-        'https://images.unsplash.com/photo-1551334787-21e6bd3ab135?w=640',
-        'https://images.unsplash.com/photo-1551214012-84f95e060dee?w=640',
-        'https://images.unsplash.com/photo-1551446591-142875a901a1?w=640'
-        ]
     };
   },
   components: {
-      
+    activeBanner,
+    lackPeoples,
+    goodsDetail,
+    playStep,
+    playDirection,
+    playDetail,
+    shopArea,
+    groupButton
   },
-  mixins: [countDown],
+  watch: {},
   beforeCreate() {},
   created() {},
   beforeMount() {},
   mounted() {},
+  events:{
+   
+  },
   computed: {},
   onLoad(options) {},
   onReady() {
@@ -42,7 +52,6 @@ export default {
     console.log("Page [my] onReady");
   },
   onShow() {
-      this.getCountDown('1561626799','day')
     // Do something when page show.
     console.log("Page [my] onShow");
   },
@@ -52,19 +61,31 @@ export default {
   },
   onUnload() {},
 
-  methods: {}
+  methods: {
+
+  }
 };
 </script>
 
 <style lang="scss" scoped>
 /deep/ .assemble_detail_wrapper {
-    .slider-wrapper{
-        width: 100%;
-        height: 200px;
-        .slide-item img{
-            width: 100%;
-            height:100%;
-        }
+  padding: 0 0 100px 0;
+  box-sizing: border-box;
+  .play_way,
+  .play_direction,
+  .good_detail,
+  .play_detail,
+  .shops_area{
+    margin-bottom: 20px;
+  }
+  .play_way_name {
+      height: 60px;
+      display: flex;
+      align-items: center;
+      padding: 0 20px;
+      box-sizing: border-box;
+      justify-content: space-between;
+      border-bottom: 2px solid #ccc;
     }
 }
 </style>
