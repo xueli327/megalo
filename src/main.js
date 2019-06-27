@@ -20,6 +20,7 @@ export default {
       
       'pages/user/assemble/assembleDetail',
       'pages/user/load_page/load_page',
+      'pages/user/order_detail/order_detail',
       'pages/user/my_order/my_order',
       'pages/user/home/home',
       'pages/user/my/my',
@@ -29,7 +30,7 @@ export default {
     ],
     "permission": {
       "scope.userLocation": {
-        "desc": "获取您的位置信息"
+        "desc": "”美小智“要获取您的地理位置，是否允许？"
       }
     },
     subPackages: [{

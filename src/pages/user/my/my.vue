@@ -4,7 +4,8 @@
      "van-icon": "../../../native/vant/icon/index",
      "van-popup": "../../../native/vant/popup/index"
   },
-   navigationBarTitleText:"我的"
+   navigationBarTitleText:"我的",
+   backgroundColor:'#F5F5F5'
 }
 </config>
 <template>
@@ -99,6 +100,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+._img {
+  width: 60px;
+  height: 60px;
+}
 /deep/ .center_wrap {
   button {
     display: inline;
@@ -114,19 +119,16 @@ export default {
       background: red;
       align-items: center;
       justify-content: space-between;
-      .avator {
-        width: 60px;
-        height: 60px;
-      }
+      margin-left: 14px;
       .phone {
       }
     }
   }
-  .order{
-    .top{
+  .order {
+    .top {
       display: flex;
       justify-content: space-between;
-     // flex-direction
+      // flex-direction
     }
   }
   .model {

@@ -8,6 +8,8 @@
 </config>
 <template>
   <div class="app">
+            <van-button size="large" type="info" open-type="getUserInfo"  @getuserinfo="bindGetUserInfo">微信登录</van-button>
+
     <button @click="linkto">服务协议页面</button>
     <button @click='getScancode'>获取位置</button>
      <picker mode="multiSelector" :value="dateTime1" @change="changeDateTime1" @columnchange="changeDateTimeColumn1" :range="dateTimeArray1">
@@ -34,10 +36,7 @@ export default {
     tabBar
   },
   computed: {
-    ...mapGetters([
-      'systemInfo',
-      'isIphoneX'
-    ])
+    ...mapGetters(["systemInfo", "isIphoneX"])
   },
   data() {
     return {
@@ -57,7 +56,7 @@ export default {
     console.log("Page [my] Vue beforeCreate");
   },
   created() {
-    console.log(this.isIphonex,'this.isIphonex')
+    console.log(this.isIphonex, "this.isIphonex");
     var obj = dateTimePicker.dateTimePicker(
       this._data.startYear,
       this._data.endYear
@@ -81,7 +80,8 @@ export default {
   // },
   onLoad(options) {
     let that = this;
-    console.log(this.getSystemInfo())
+     console.log(options,'options.scene')
+    //console.log(this.getSystemInfo());
     // **********地图的调用*********** //
     qqmapsdk = new QQMapWX({
       key: "HEEBZ-VQRLX-C334C-7JZ3J-YBT52-W4BC2" // 必填
@@ -114,6 +114,7 @@ export default {
     console.log("Page [my] onReady");
   },
   onShow() {
+    console.log(options.scene,'options.scene')
     // console.log(this,'this')
     // console.log(this.selectComponent('#picker-date'))
     // Do something when page show.
@@ -129,9 +130,25 @@ export default {
    * for other event handlers, please check https://developers.weixin.qq.com/miniprogram/dev/framework/app-service/page.html
    */
   methods: {
-    ...mapActions[
-      'getSystemInfo'
-    ],
+    ...mapActions["getSystemInfo"],
+    bindGetUserInfo(e) {
+      wx.openSetting({
+        success(res) {
+          console.log(res.authSetting);
+          // res.authSetting = {
+          //   "scope.userInfo": true,
+          //   "scope.userLocation": true
+          // }
+        }
+      });
+      const { userInfo } = e.detail;
+      console.log(userInfo);
+      if (userInfo) {
+        this.oAuth();
+      } else {
+        console.log("jjjj");
+      }
+    },
     onInput(event) {},
     linkto() {
       this.$router.push("/pages/user/agreement/agreement");

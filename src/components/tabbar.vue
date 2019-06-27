@@ -38,13 +38,13 @@ export default {
       selectedColor: "#45b7af",
       navList: [
         {
-          pagePath: "/pages/home/home",
+          pagePath: "/pages/user/home/home",
           iconPath: "native/tabbar/home.png",
           selectedIconPath: "native/tabbar/home_on.png",
           text: "首页"
         },
         {
-          pagePath: "/pages/my/my",
+          pagePath: "/pages/user/my/my",
           iconPath: "/native/tabbar/mine.png",
           selectedIconPath: "native/tabbar/mine_on.png",
           text: "我的"
@@ -85,7 +85,7 @@ export default {
   position: fixed;
   bottom: 0;
   left: 0;
-  height: 92px;
+  height: 49px;
   width: 100%;
   padding-top: 6px;
   box-shadow: 0 0 2px #c4c4c4;
@@ -98,25 +98,26 @@ export default {
     .tabbar-item {
       flex: 1;
       .tabbar-icon {
-        height: 56px;
+        height: 20px;
         text-align: center;
         position: relative;
         img {
-          width: 56px;
-          height: 56px;
+          width: 20px;
+          height: 20px;
           &.imgSpecial {
-            width: 84px;
-            height: 84px;
+            width: 20px;
+            height: 20px;
           }
         }
       }
       .tabbar-text {
         text-align: center;
-        line-height: 36px;
-        color: #979795;
-        font-size: 22px;
+        margin-top: 3px;
+        //line-height: 36px;
+        color: #A7ABAF;
+        font-size: 10px;
         &.active {
-          color: #45b7af;
+          color: #232628;;
         }
       }
       &.wrapSpecial {

@@ -7,6 +7,7 @@ export default {
     },
     methods: {
         getCountDown(timestamp,type) {
+            let that = this
              setInterval(function () {
                  var nowTime = new Date();
                  var endTime = new Date(timestamp * 1000);
@@ -27,9 +28,9 @@ export default {
                      sec = "0" + sec;
                  }
                  if (type==='noday'){
-                    this.countDownTimes =  hour + "时" + min + "分" + sec + '秒'
+                    that.countDownTimes =  hour + "时" + min + "分" + sec + '秒'
                  } else if (type === 'day'){
-                     this.countDownTimes = d + '天' + hour + "时" + min + "分" + sec + '秒'
+                    that.countDownTimes = d + '天' + hour + "时" + min + "分" + sec + '秒'
                  }
                  
              }, 1000);

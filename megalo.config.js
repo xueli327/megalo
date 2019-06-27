@@ -36,7 +36,7 @@ module.exports = {
       },
         // https://github.com/megalojs/megalo-px2rpx-loader
       px2rpx: {
-        rpxUnit: 1
+        rpxUnit: 0.5
       }
     }
   }
