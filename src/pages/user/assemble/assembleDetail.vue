@@ -1,9 +1,3 @@
-<config>
-{
-  "usingComponents": {
-  }
-}
-</config>
 <template>
   <div class="assemble_detail_wrapper">
     <activeBanner></activeBanner>
@@ -13,6 +7,7 @@
     <playDirection></playDirection>
     <playDetail></playDetail>
     <shopArea></shopArea>
+    <groupButton></groupButton>
   </div> 
 </template>
 <script>
@@ -23,6 +18,7 @@ import playStep from "@/components/assembles/playStep";
 import playDirection from '@/components/assembles/playDirection'
 import playDetail from '@/components/assembles/playDetail'
 import shopArea from '@/components/assembles/shopArea'
+import groupButton from '@/components/assembles/groupButton'
 
 
 
@@ -38,13 +34,17 @@ export default {
     playStep,
     playDirection,
     playDetail,
-    shopArea
+    shopArea,
+    groupButton
   },
   watch: {},
   beforeCreate() {},
   created() {},
   beforeMount() {},
   mounted() {},
+  events:{
+   
+  },
   computed: {},
   onLoad(options) {},
   onReady() {
@@ -61,16 +61,21 @@ export default {
   },
   onUnload() {},
 
-  methods: {}
+  methods: {
+
+  }
 };
 </script>
 
 <style lang="scss" scoped>
 /deep/ .assemble_detail_wrapper {
+  padding: 0 0 100px 0;
+  box-sizing: border-box;
   .play_way,
   .play_direction,
   .good_detail,
-  .play_detail{
+  .play_detail,
+  .shops_area{
     margin-bottom: 20px;
   }
   .play_way_name {

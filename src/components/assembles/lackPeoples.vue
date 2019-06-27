@@ -1,8 +1,16 @@
 <template>
+
   <div class="lack_people">
-    <div class="lack_people_top">
-      <span>5人团还差2人，</span>
-      <countDown :times='times' :type='type'></countDown>
+    <!-- 拼团显示 -->
+    <!--<div class="lack_people_top">
+      <span>5人团还差2人， <countDown :times='times' :type='type'></countDown></span>
+      <span>该团已满，请参与正在进行的拼团或立即开团</span>
+      <span>拼团失败，请参与正在进行的拼团或立即开团</span>
+      <span>该团已满，活动已结束</span>
+    </div> -->
+    <!-- 确认订单显示  -->
+    <div class="lack_people_top" v-if="fromPage==='ordersPage'"> 
+      <span>【正在开团】立即支付，即可开团成功</span> 
     </div>
     <div class="lack_people_list">
         <div class="items">
@@ -19,6 +27,7 @@
 <script>
 import countDown from "@/components/countDown";
 export default {
+  props:["fromPage"],
   data() {
     return {
       times: "1561626799",
@@ -46,6 +55,7 @@ export default {
   box-sizing: border-box;
   .lack_people_top{
     margin-bottom: 10px;
+    border-bottom: 2px solid #ccc;
   }
   .lack_people_list{  
       display: flex;

@@ -9,9 +9,13 @@
   </div>
 </template>
 <script>
+//fromPage===ordersPage确认订单
 export default {
+  props:["fromPage"],
   data() {
-    return {};
+    return {
+      
+    };
   },
   beforeCreate() {},
   created() {},

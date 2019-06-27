@@ -1,9 +1,10 @@
 <config>
 {
   "usingComponents": {
-    "van-card": "../../native/vant/card/index",
-    "van-button": "../../native/vant/button/index"
-  }
+    "van-card": "../../../native/vant/card/index",
+    "van-button": "../../../native/vant/button/index"
+  },
+  navigationBarTitleText: '美小智'
 }
 </config>
 <template>

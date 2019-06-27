@@ -17,15 +17,15 @@ export default {
   config: {
     // pages 的首个页面会被编译成首页
     pages: [
-      
-      'pages/user/assemble/assembleDetail',
       'pages/user/load_page/load_page',
       'pages/user/my_order/my_order',
       'pages/user/home/home',
       'pages/user/my/my',
       'pages/user/position/position',
       'pages/user/agreement/agreement',
-      'pages/user/assemble/assemble'
+      'pages/user/assemble/assemble',
+      'pages/user/assemble/assembleDetail',
+      'pages/user/orders/orders',
     ],
     "permission": {
       "scope.userLocation": {
