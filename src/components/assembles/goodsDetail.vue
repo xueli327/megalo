@@ -1,17 +1,20 @@
 <template>
     <div class="good_detail">
         <div class="titles">
-            <span>单人炫彩高端光疗美甲套餐（纯植物胶）富强民主文明和谐自由平等公正法治...</span>
-            <span class="share">分享</span>
+            <div class="title_text text_ellipsis">小气泡美肤（超微小气泡）小气泡 小气泡美肤超微小气泡小气泡…</div>
+            <div class="share">
+              <img src="../../static/imgs/fenxiang.png" alt="">
+              <span>分享</span>
+            </div>
         </div>
-        <div class="prices">
-            <span>单买价 ￥699.90</span>
-            <span>200人已参与活动</span>
+        <div class="group_buy">
+          <div class="tags">
+              <span class="tag">2人团  | ￥99.9</span>
+              <span class="tag">8人团  | ￥99.9</span>
+          </div>
+          <span class="join_people">200人已参加活动</span>
         </div>
-        <div class="tags">
-            <span>2人团  | ￥99.9</span>
-            <span>8人团  | ￥99.9</span>
-        </div>
+        
     </div>
 </template>
 <script>
@@ -33,33 +36,53 @@ export default {
 </script>
 <style lang="scss" scoped>
 .good_detail {
-    padding: 15px 20px;
+    padding: 14px;
     box-sizing: border-box;
-    background: pink;
+    background: #fff;
     .titles {
       display: flex;
-      margin-bottom: 20px;
+      margin-bottom: 10px;
+      font-size: 18px;
+      font-weight: 500;
+      .title_text{
+        margin-right: 40px;
+        max-height: 50px;
+        line-height:25px;
+      }
       .share {
-        display: block;
-        width: 250px;
+        width: 100px;
         text-align: center;
+        font-size: 11px;
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        align-items: center;
+        img{
+          width: 20px;
+          height: 20px;
+          margin-bottom: 3px;
+        }
       }
     }
-    .prices {
+    .group_buy{
       display: flex;
+      align-items: center;
       justify-content: space-between;
-      margin-bottom: 20px;
+      .join_people{
+        font-size: 12px;
+        color: #9B9B9B;
+      }
     }
     .tags {
       display: flex;
-      span {
-        display: block;
-        width: auto;
-        padding: 0 10px;
+      .tag {
+        padding: 2px 5px;
         box-sizing: border-box;
-        background: #ccc;
+        background: #F5F5F5;
         text-align: center;
-        margin-right: 10px;
+        margin-right: 6px;
+        font-size: 12px;
+        color: #9B9B9B;
       }
     }
   }

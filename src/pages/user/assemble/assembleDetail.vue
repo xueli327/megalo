@@ -1,7 +1,8 @@
 <template>
   <div class="assemble_detail_wrapper">
     <activeBanner></activeBanner>
-    <lackPeoples></lackPeoples><!-- 参团详情才显示lackPeoples -->
+    <!-- <lackPeoples></lackPeoples> -->
+    <!-- 参团详情才显示lackPeoples -->
     <goodsDetail></goodsDetail>
     <playStep></playStep>
     <playDirection></playDirection>

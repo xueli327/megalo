@@ -33,6 +33,13 @@ export default {
   page{
     background: #F5F5F5;
     font-family: PingFangSC-Medium;
+    color: #232628;
+  }
+  .text_ellipsis{
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    overflow: hidden;
   }
 </style>
 
