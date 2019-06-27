@@ -44,7 +44,7 @@ export default {
   onLoad(options) {},
   onReady() {},
   onShow() {
-    this.getCountDown("1561694268", "day");
+   //this.getCountDown("1561694268", "day");
   },
   onHide() {},
   onUnload() {},

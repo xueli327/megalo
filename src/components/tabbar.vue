@@ -39,14 +39,14 @@ export default {
       navList: [
         {
           pagePath: "/pages/user/home/home",
-          iconPath: "native/tabbar/home.png",
-          selectedIconPath: "native/tabbar/home_on.png",
+          iconPath: "native/tabbar/shouye-zhihui@2x.png",
+          selectedIconPath: "native/tabbar/shouye-dianji@2x.png",
           text: "首页"
         },
         {
           pagePath: "/pages/user/my/my",
-          iconPath: "/native/tabbar/mine.png",
-          selectedIconPath: "native/tabbar/mine_on.png",
+          iconPath: "/native/tabbar/wode-zhihui@2x.png",
+          selectedIconPath: "native/tabbar/wode-dianji@2x.png",
           text: "我的"
         }
       ]
