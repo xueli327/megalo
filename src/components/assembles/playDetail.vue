@@ -29,13 +29,14 @@ export default {
 </script>
 <style lang="scss" scoped>
 .play_detail {
+  background: #fff;
+  padding: 14px 14px 6px 14px;
+  box-sizing: border-box;
   .imgs{
-      padding: 20px;
-      box-sizing: border-box;
       img{
           width: 100%;
-          height: 300px;
-          margin-bottom: 10px;
+          height: 437px;
+          margin-bottom: 4px;
       }
   }
 }

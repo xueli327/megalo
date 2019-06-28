@@ -1,3 +1,8 @@
+<config>
+{
+  navigationBarTitleText: '拼团详情'
+}
+</config>
 <template>
   <div class="assemble_detail_wrapper">
     <activeBanner></activeBanner>
@@ -70,23 +75,23 @@ export default {
 
 <style lang="scss" scoped>
 /deep/ .assemble_detail_wrapper {
-  padding: 0 0 100px 0;
+  padding: 0 0 46px 0;
   box-sizing: border-box;
   .play_way,
   .play_direction,
   .good_detail,
   .play_detail,
   .shops_area{
-    margin-bottom: 20px;
+    margin-bottom: 8px;
   }
   .play_way_name {
-      height: 60px;
+      height: 35px;
+      color: #232628;
       display: flex;
-      align-items: center;
-      padding: 0 20px;
       box-sizing: border-box;
       justify-content: space-between;
-      border-bottom: 2px solid #ccc;
+      font-size: 15px;
+      align-items: center;
     }
 }
 </style>

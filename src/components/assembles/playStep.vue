@@ -1,8 +1,15 @@
+
+{
+  "usingComponents": {
+    "van-icon": "../../native/native/vant/icon/index",
+  }
+}
+</config>
 <template>
   <div class="play_way">
     <div class="play_way_name"> 
       <span>拼团玩法</span>
-      <span>详情 ></span>
+      <span class="more">详情<van-icon name="arrow" color="#1F1F1F" size="12px"/></span>
     </div>
     <div class="step">
       <div class="step_num">
@@ -38,26 +45,64 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
+.play_way{
+  height: 129px;
+  background: #fff;
+  padding: 0 14px 14px 14px;
+  box-sizing: border-box;
+  .play_way_name{
+    height: 49px;
+    font-size: 15px;
+    font-weight:500;
+    align-items: center;
+    .more{
+      color: #9B9B9B;
+      font-size:12px;
+      display: flex;
+      align-items: center;
+      // i{
+      //   color: #1F1F1F;
+      //   font-size: 18px;
+      //   margin-left: 10px;
+      // }
+    }
+  }
+}
 .step {
-  padding: 30px 0;
+  padding: 13px 15px 12px 15px;
+  box-sizing: border-box;
+  width: 100%;
+  height: 66px;
+  border-radius: 5px;
+  background: #F5F5F5;
   .step_num,
   .step_bot {
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
-    font-size: 24px;
+  }
+  .step_bot{
+    margin-top: 9px;
+    font-size: 11px
   }
   .step_bot div {
     width: 33%;
   }
   .num {
-    margin: 0 20px;
+    width: 16px;
+    height: 16px;
+    background: #232628;
+    font-size:12px;
+    color: #fff;
+    border-radius: 100%;
+    line-height: 16px;
+    text-align: center;
   }
   .line {
-    width: 200px;
-    height: 4px;
-    background: #ccc;
+    width: 104px;
+    height: 3px;
+    background: #232628;
   }
 }
 </style>
