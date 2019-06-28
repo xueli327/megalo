@@ -1,15 +1,21 @@
 
 <template>
-  <div class="app">
-    <tab-bar :selectNavIndex="0"></tab-bar>
+  <div class="withdrawals">
+    <div class="title">
+        体现到
+    </div>
+    <div class="way">
+        <img src="" alt="">
+        <div class="way_text">
+            微信零钱
+        </div>
+    </div>
   </div>
 </template>
 <script>
-import tabBar from "@/components/adminTabbar";
-
 export default {
   components: {
-    tabBar
+    
   },
   data() {
     return {};
@@ -18,12 +24,6 @@ export default {
     console.log("Page [my] Vue beforeCreate");
   },
   created() {
-    wx.login({
-      success(res) {
-        console.log(res, "res");
-      }
-    });
-    console.log("Page [my] Vue created");
     var appInstance = getApp();
     console.log(appInstance.globalData); // I am global data
   },
@@ -57,33 +57,23 @@ export default {
    * for other event handlers, please check https://developers.weixin.qq.com/miniprogram/dev/framework/app-service/page.html
    */
   methods: {
-    linkto(e) {
-      let id = e.currentTarget.id;
-      this.$router.push({ path: "/pages/user/detail/detail", query: { id } });
-    }
+    
   }
 };
 </script>
 
-<style lang="scss" >
-.app {
-  .custom {
-    margin-bottom: 20px;
-  }
-  .tag_class {
-    background: green;
-    color: red;
-  }
-  .title_hq {
-    color: pink;
-    font-size: 40rpx;
-  }
-  .line {
-    height: 30rpx;
-  }
-  .price {
-    color: pink;
-    font-size: 50rpx;
-  }
+<style lang="scss" scoped>
+.withdrawals{
+    .way{
+        display: flex;
+        border:1px 0 1px 0 solid red;
+        img{
+            width: 20px;
+            height: 20px;
+        }
+        .way_text{
+            margin-left: 20px;
+        }
+    }
 }
 </style>

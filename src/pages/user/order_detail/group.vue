@@ -2,6 +2,7 @@
 <template>
   <div class="order">
     还差几人开团
+    
   </div>
 </template>
 <style lang="scss">

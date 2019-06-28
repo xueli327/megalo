@@ -26,17 +26,21 @@ export default {
       'pages/user/agreement/agreement',
       'pages/user/assemble/assemble',
       'pages/user/assemble/assembleDetail',
-      'pages/user/orders/orders',
+      'pages/user/orders/orders'
     ],
     "permission": {
       "scope.userLocation": {
-        "desc": "”美小智“要获取您的地理位置，是否允许？"
+        "desc": "”美小智“要获取您的地理位置，是否允许？" 
       }
     },
     subPackages: [{
         root: "pages/admin",
         pages: [
           'index/index',
+          'my_center/my_center',
+          'merchant_wallet/merchant_wallet',
+          'withdrawals/withdrawals',
+          'withdrawals_detail/withdrawals_detail'
         ]
       }
 

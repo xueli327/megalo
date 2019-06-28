@@ -1,7 +1,8 @@
 <config>
 {
   "usingComponents": {
-    "van-card": "../../../native/vant/card/index"
+    "van-card": "../../../native/vant/card/index",
+    "van-dialog": "../../../native/vant/dialog/index"
   },
    navigationBarTitleText:'订单详情'
 }
@@ -14,13 +15,7 @@
     <contactInformation></contactInformation>
     <businessInformation></businessInformation>
     <orderMessage></orderMessage>
-    <div class="group">
-        <button>取消订单</button>
-        <button>立即支付</button>
-    </div>
-    <div class="group">
-        <button open-type="share">邀请好友参团</button>
-    </div>
+   <statusButton></statusButton>
   </div>
 </template>
 <style lang="scss">
@@ -32,6 +27,7 @@ import goods from "./goods";
 import contactInformation from "./contact_information";
 import orderMessage from "./order_message";
 import orderStatus from "./order_status";
+import statusButton from "./bottom_btn";
 
 export default {
   components: {
@@ -39,11 +35,13 @@ export default {
     contactInformation,
     orderMessage,
     orderStatus,
-    group
+    group,
+    statusButton
   },
   data() {
     return {
-      active: 0
+      active: 0,
+      is_show:true
     };
   },
   beforeCreate() {},

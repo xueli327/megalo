@@ -45,7 +45,7 @@ export default {
         },
         {
           pagePath: "/pages/user/my/my",
-          iconPath: "/native/tabbar/wode-zhihui@2x.png",
+          iconPath: "/native/tabbar/wode-weidian@2x.png",
           selectedIconPath: "native/tabbar/wode-dianji@2x.png",
           text: "我的"
         }
