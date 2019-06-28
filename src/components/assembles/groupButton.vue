@@ -1,19 +1,21 @@
 <template>
   <div class="btn_wrapper">
      <!-- <div class="btns">分享给好友</div> -->
-     <!-- <div class="spell">
+     <div class="spell">
         <div class="btns oldprice">
           <span class="number">¥399.9</span>
-          <span class="title">原价购买</span>
+          <span class="title" @click="linktoOrder('ORIGINALBUY')">原价购买</span>
+          <!-- 跳转确认订单 -->
         </div>
-        <div class="btns">
+        <div class="btns" @click="onOpenGroup">
           <span class="number">¥79.99</span>
           <span class="title">立即开团</span>
         </div>
-     </div> -->
+     </div>
      <!-- <div class="btns">立即开团</div> --><!-- 参团详情 -->    
      
-     <div class="btns" @click="linktoOrder">立即参团</div>参团详情
+     <!-- <div class="btns" @click="linktoOrder('JOINGROUP')">立即参团</div> --> <!-- 跳转确认订单 -->
+     
      
      <!-- <div class="over">活动已结束</div> -->
   </div>
@@ -33,10 +35,13 @@ export default {
   onHide() {},
   onUnload() {},
   methods: {
-    linktoOrder() {
+    linktoOrder(val) {
       this.$router.push({
-        path: "/pages/user/orders/orders"
+        path: `/pages/user/orders/orders?fromBtnType=${val}`
       });
+    },
+    onOpenGroup(){
+      this.$emit("onOpenGroup")
     }
   }
 };

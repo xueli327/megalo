@@ -32,7 +32,7 @@
             </van-field>
         </van-cell-group>
     </div>
-    <lackPeoples :fromPage="fromPage"></lackPeoples>
+    <lackPeoples :fromBtnType="fromBtnType"></lackPeoples>
     <div class="card">
         <van-card
             price="79.99"
@@ -64,6 +64,7 @@ export default {
   data() {
     return {
       fromPage: "ordersPage",
+      fromBtnType:'',//判断从哪个页面进入当前页 ORIGINALBUY=原价购买； JOINGROUP=立即参团； OPENGROUP=立即开团
       username: "",
       errorUser: "", //请输入用户名
       phone: "",
@@ -75,10 +76,14 @@ export default {
     shopArea
   },
   beforeCreate() {},
-  created() {},
+  created() {
+    this.fromBtnType=this.$route.query.fromBtnType
+  },
   beforeMount() {},
   mounted() {},
-  onLoad(options) {},
+  onLoad(options) {
+    
+  },
   onReady() {},
   onShow() {},
   onHide() {},

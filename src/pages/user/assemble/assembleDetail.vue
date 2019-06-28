@@ -13,11 +13,11 @@
     <goodsDetail></goodsDetail>
     <groupList></groupList>
     <lackPeoples v-if="this.$route.query.fromPage!=='assemblePage'"></lackPeoples> <!-- 参团详情才显示 -->
-    <playStep @onOpenRole="openRoleF"></playStep>
+    <playStep @onOpenRole="open_Role"></playStep>
     <playDirection></playDirection>
     <playDetail></playDetail>
     <shopArea></shopArea>
-    <groupButton></groupButton>
+    <groupButton @onOpenGroup="open_Group"></groupButton>
     <!-- 活动规则弹框 -->
     <van-popup
         :show="isShow"
@@ -52,6 +52,34 @@
           </div>
         </div>
     </van-popup>
+    <!-- 选择拼团人数弹框 -->
+     <van-popup
+        :show="isShowPeople"
+        position="bottom"
+        close-on-click-overlay="true"
+        custom-class="custom1"
+        >
+        <div class="popue_people">
+          <van-icon class="icon_cross" name="cross" size="20px" @click="isShowPeople=false" />
+          <div class="check_people">
+              <h3>选择拼团人数</h3>
+              <div class="check">
+                <div class="check_groups">
+                  <p class="num">2人成团</p>
+                  <p class="price">￥99.99</p>
+                </div>
+                <div class="check_groups last">
+                  <p class="num">2人成团</p>
+                  <p class="price">￥99.99</p>
+                </div>
+              </div>
+          </div>
+          <div class="btn" @click="linktoOrder">
+            立即开团(￥99.99)
+             <!-- 跳转确认订单 -->
+          </div>
+        </div>
+    </van-popup>
   </div> 
 </template>
 <script>
@@ -69,7 +97,8 @@ export default {
   props: ["fromPage"],
   data() {
     return {
-      isShow: true
+      isShow: false,
+      isShowPeople: false
     };
   },
   components: {
@@ -122,8 +151,16 @@ export default {
   onUnload() {},
 
   methods: {
-    openRoleF() {
+    linktoOrder() {
+      this.$router.push({
+        path: `/pages/user/orders/orders?fromBtnType=OPENGROUP`
+      });
+    },
+    open_Role() {
       this.isShow = true;
+    },
+    open_Group() {
+      this.isShowPeople = true;
     }
   }
 };
@@ -161,11 +198,6 @@ export default {
     background: rgba(255, 255, 255, 1);
     border-radius: 5px 5px 0px 0px;
     position: relative;
-    .icon_cross {
-      position: absolute;
-      right: 14px;
-      top: 14px;
-    }
     h3 {
       font-size: 15px;
       font-weight: 500;
@@ -187,6 +219,68 @@ export default {
           line-height: 19px;
         }
       }
+    }
+  }
+  .icon_cross {
+    position: absolute;
+    right: 14px;
+    top: 14px;
+  }
+  .custom1 {
+    height: 198px;
+    width: 100%;
+  }
+  .popue_people {
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 1);
+    border-radius: 5px 5px 0px 0px;
+    position: relative;
+    .check_people {
+      padding: 32px 14px 14px 14px;
+      box-sizing: border-box;
+      height: 152px;
+      h3 {
+        font-size: 15px;
+        font-weight: 500;
+        margin-bottom: 25px;
+      }
+      .check {
+        display: flex;
+        justify-content: space-around;
+        .check_groups {
+          width: 118px;
+          height: 42px;
+          background: rgba(232, 232, 232, 1);
+          border-radius: 3px;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          padding: 4px 0 0 0;
+          box-sizing: border-box;
+          .price {
+            font-size: 15px;
+            font-weight: 500;
+          }
+          .num {
+            font-size: 12px;
+          }
+        }
+        .last {
+          background: #f07e1e;
+          color: #fff;
+        }
+      }
+    }
+    .btn {
+      background: #f07e1e;
+      width: 100%;
+      height: 46px;
+      font-size: 18px;
+      color: #fff;
+      line-height: 46px;
+      font-weight: 500;
+      text-align: center;
     }
   }
 }

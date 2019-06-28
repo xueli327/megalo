@@ -9,8 +9,12 @@
       <span>该团已满，活动已结束</span>
     </div> -->
     <!-- 确认订单显示  -->
-    <div class="lack_people_top" v-if="fromPage==='ordersPage'"> 
-      <span>【正在开团】立即支付，即可开团成功</span> 
+    <div class="lack_people_top"> 
+      <span v-if="fromBtnType==='OPENGROUP'">【正在开团】立即支付，即可开团成功</span> 
+      <span v-if="fromBtnType==='JOINGROUP'">【正在参团】
+        <!-- <countDown :times='times' :type='type'></countDown> -->
+      </span> 
+      <span v-if="fromBtnType==='ORIGINALBUY'">【原价购买】立即支付，即可购买成功</span> 
     </div>
     <div class="lack_people_list">
         <div class="items">
@@ -27,7 +31,7 @@
 <script>
 import countDown from "@/components/countDown";
 export default {
-  props: ["fromPage"],
+  props:["fromBtnType"],
   data() {
     return {
       times: "1561626799",
