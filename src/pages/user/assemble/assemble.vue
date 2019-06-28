@@ -24,7 +24,6 @@
         title-class="title_hq"
         price-class="price"
         custom-class="custom"
-        thumb-mode="aspectFit"
         desc-class='desc'
         origin-price-class="origin_price"
         @click="linkto"
@@ -42,15 +41,17 @@ export default {
   components: {},
   data() {
     return {
+      fromPage: "assemblePage",
       list: [
         {
-          title: "商品名称商品名称商品名称商品名称商品名称商品名称商品名称商品名称商品名称商品名称商品名称商品名称商品名称",
+          title:
+            "商品名称商品名称商品名称商品名称商品名称商品名称商品名称商品名称商品名称商品名称商品名称商品名称商品名称",
           tag: "商品",
           desc: "北京/朝阳",
           price: 79.99,
           origin_price: 200,
           imageURL:
-            "https://user-images.githubusercontent.com/20720117/48262986-80e02780-e45f-11e8-8426-2872916adad9.png"
+            "https://images.unsplash.com/photo-1551334787-21e6bd3ab135?w=640"
         },
         {
           title: "商品名称",
@@ -59,7 +60,7 @@ export default {
           price: 100,
           origin_price: 200,
           imageURL:
-            "https://user-images.githubusercontent.com/20720117/48262986-80e02780-e45f-11e8-8426-2872916adad9.png"
+            "https://images.unsplash.com/photo-1551334787-21e6bd3ab135?w=640"
         }
       ]
     };
@@ -102,7 +103,10 @@ export default {
       let id = e.currentTarget.id;
       this.$router.push({
         path: "/pages/user/assemble/assembleDetail",
-        query: { id }
+        query: { 
+          id,
+          fromPage:this.fromPage
+          }
       });
     }
   }
@@ -139,7 +143,8 @@ export default {
       -webkit-line-clamp: 3;
       overflow: hidden;
     }
-    .pic {
+    .pic,
+    .van-card__thumb {
       width: 103px;
       height: 87px;
     }
@@ -165,7 +170,7 @@ export default {
       color: #9b9b9b;
     }
     .tags {
-      width: 32px;
+      width: 42px;
       height: 16px;
       display: inline-block;
       font-family: PingFangSC-Regular;
@@ -176,6 +181,8 @@ export default {
       right: 14px;
       background: #f5f5f5;
       border-radius: 3px;
+      text-align: center;
+      line-height: 16px;
     }
   }
 }

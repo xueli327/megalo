@@ -1,5 +1,4 @@
-
-{
+<config>{
   "usingComponents": {
     "van-icon": "../../native/native/vant/icon/index",
   }
@@ -9,7 +8,7 @@
   <div class="play_way">
     <div class="play_way_name"> 
       <span>拼团玩法</span>
-      <span class="more">详情<van-icon name="arrow" color="#1F1F1F" size="12px"/></span>
+      <span class="more" @click="onOpenRole">详情<van-icon name="arrow" color="#1F1F1F" size="12px"/></span>
     </div>
     <div class="step">
       <div class="step_num">
@@ -30,7 +29,9 @@
 <script>
 export default {
   data() {
-    return {};
+    return {
+     
+    };
   },
   beforeCreate() {},
   created() {},
@@ -41,23 +42,28 @@ export default {
   onShow() {},
   onHide() {},
   onUnload() {},
-  methods: {}
+  methods: {
+    onOpenRole() {
+     this.$emit('onOpenRole')
+    },
+    onClose() {}
+  }
 };
 </script>
 <style lang="scss" scoped>
-.play_way{
+.play_way {
   height: 129px;
   background: #fff;
   padding: 0 14px 14px 14px;
   box-sizing: border-box;
-  .play_way_name{
+  .play_way_name {
     height: 49px;
     font-size: 15px;
-    font-weight:500;
+    font-weight: 500;
     align-items: center;
-    .more{
-      color: #9B9B9B;
-      font-size:12px;
+    .more {
+      color: #9b9b9b;
+      font-size: 12px;
       display: flex;
       align-items: center;
       // i{
@@ -74,7 +80,7 @@ export default {
   width: 100%;
   height: 66px;
   border-radius: 5px;
-  background: #F5F5F5;
+  background: #f5f5f5;
   .step_num,
   .step_bot {
     display: flex;
@@ -82,9 +88,9 @@ export default {
     align-items: center;
     text-align: center;
   }
-  .step_bot{
+  .step_bot {
     margin-top: 9px;
-    font-size: 11px
+    font-size: 11px;
   }
   .step_bot div {
     width: 33%;
@@ -93,7 +99,7 @@ export default {
     width: 16px;
     height: 16px;
     background: #232628;
-    font-size:12px;
+    font-size: 12px;
     color: #fff;
     border-radius: 100%;
     line-height: 16px;

@@ -14,12 +14,12 @@
     </div>
     <div class="lack_people_list">
         <div class="items">
-          <img src="https://user-images.githubusercontent.com/20720117/48262986-80e02780-e45f-11e8-8426-2872916adad9.png" alt="">
-          <span class="tag">团长</span>
+          <img class="item_img" src="https://user-images.githubusercontent.com/20720117/48262986-80e02780-e45f-11e8-8426-2872916adad9.png" alt="">
+          <span class="tag">待支付</span>
+          <img class="group_leader" src="../../static/imgs/tuanzhang@2x.png" alt="">
         </div>
         <div class="items">
-          <img src="https://user-images.githubusercontent.com/20720117/48262986-80e02780-e45f-11e8-8426-2872916adad9.png" alt="">
-          <span class="tag">团长</span>
+          <img class="item_img" src="https://user-images.githubusercontent.com/20720117/48262986-80e02780-e45f-11e8-8426-2872916adad9.png" alt="">
         </div>
     </div>
   </div>
@@ -27,14 +27,14 @@
 <script>
 import countDown from "@/components/countDown";
 export default {
-  props:["fromPage"],
+  props: ["fromPage"],
   data() {
     return {
       times: "1561626799",
-      type: "noday",
-    }
+      type: "noday"
+    };
   },
-  components:{
+  components: {
     countDown
   },
   beforeCreate() {},
@@ -50,35 +50,52 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
-.lack_people{
-  padding: 20px;
+.lack_people {
+  padding: 0px 14px 14px 14px;
   box-sizing: border-box;
-  .lack_people_top{
-    margin-bottom: 10px;
-    border-bottom: 2px solid #ccc;
+  height: 105px;
+  background: #fff;
+  margin-bottom: 8px;
+  .lack_people_top {
+    height: 55px;
+    display: flex;
+    align-items: center;
+    font-size: 15px;
+    font-weight: 500;
   }
-  .lack_people_list{  
-      display: flex;
-      .items{
-        width: 80px;
-        height: 80px;
-        margin-right: 18px;
-        position: relative;
-        img{
-          width: 100%;
-          height: 100%;
-        }
-        .tag{
-          position: absolute;
-          height:35px;
-          width: 80px;
-          display: block;
-          left: 0;
-          bottom: 0;
-          background: #ccc;
-          font-size: 20px;
-        }
+  .lack_people_list {
+    display: flex;
+    .items {
+      margin-right: 14px;
+      width: 36px;
+      height: 36px;
+      position: relative;
+      .item_img {
+        width: 100%;
+        height: 100%;
+        border-radius: 3px;
       }
+      .group_leader {
+        width: 12px;
+        height: 16px;
+        position: absolute;
+        right: -4px;
+        top: -4px;
+      }
+      .tag {
+        position: absolute;
+        width: 36px;
+        height: 14px;
+        display: block;
+        left: 0;
+        bottom: 0;
+        background: #f07e1e;
+        border-radius: 0px 0px 3px 3px;
+        font-size: 9px;
+        color: #fff;
+        text-align: center;
+      }
+    }
   }
 }
 </style>
