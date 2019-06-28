@@ -6,11 +6,18 @@
             </swiper-item>
         </swiper>
         <div class="message">
-            <span class="price">79.90</span>
-            <div class="tag">8人团</div>
-            <div>
-                距离开始:<countDown :times='times' :type='type'></countDown>
-                <!-- 参团详情不显示倒计时 -->
+            <div class="message_left">
+              <div class="price_message">
+                <span class="price">¥79.90</span>
+                <div class="tag">8人团</div>
+              </div>
+              <div class="oldprice">
+                ￥699.00
+              </div>
+            </div>
+            <div class="message_right">
+              <div>距离开始还剩</div>
+              <!-- <countDown :times='times' :type='type'></countDown> -->
             </div>
         </div>
     </div>
@@ -48,7 +55,7 @@ export default {
 .banner_active {
   .slider-wrapper {
     width: 100%;
-    height: 400px;
+    height: 249x;
     .slide-item img {
       width: 100%;
       height: 100%;
@@ -56,18 +63,40 @@ export default {
   }
   .message {
     width: 100%;
-    height: 80px;
+    height: 54px;
     display: flex;
     align-items: center;
-    background: #ccc;
-    justify-content: space-around;
-    margin-bottom: 20px;
-    .tag {
-      width: 100px;
-      height: 50px;
-      line-height: 50px;
-      text-align: center;
-      background: #666;
+    background: #232628;
+    justify-content: space-between;
+    padding: 0 14px;
+    box-sizing: border-box;
+    .price_message{
+      display: flex;
+      align-items: center;
+      .price{
+        color: #F07E1E;
+        font-size:20px;
+        margin-right: 8px;
+      }
+      .tag {
+        width: 42px;
+        height: 16px;
+        text-align: center;
+        color: #9B9B9B;
+        font-size: 12px;
+        background:#F5F5F5;
+      }
+    }
+    .oldprice{
+      color: #fff;
+      font-size: 12px;
+      margin-top: 3px;
+      text-decoration: line-through;
+    }
+    .message_right{
+      color: #fff;
+      font-size: 12px;
+      text-align: left;
     }
   }
 }

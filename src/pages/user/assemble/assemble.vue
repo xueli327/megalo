@@ -24,14 +24,12 @@
         title-class="title_hq"
         price-class="price"
         custom-class="custom"
-        thumb-mode="aspectFit"
         desc-class='desc'
+        origin-price-class="origin_price"
         @click="linkto"
         >
-        <div slot="footer">
-          <van-button size="mini">5人团</van-button>
-        </div>
       </van-card>
+       <span class="tags">5人团</span>
     </div>
   </div>
 </template>
@@ -43,24 +41,26 @@ export default {
   components: {},
   data() {
     return {
+      fromPage: "assemblePage",
       list: [
         {
-          title: "商品名称",
+          title:
+            "商品名称商品名称商品名称商品名称商品名称商品名称商品名称商品名称商品名称商品名称商品名称商品名称商品名称",
           tag: "商品",
-          desc: "商品描述",
-          price: 100,
+          desc: "北京/朝阳",
+          price: 79.99,
           origin_price: 200,
           imageURL:
-            "https://user-images.githubusercontent.com/20720117/48262986-80e02780-e45f-11e8-8426-2872916adad9.png"
+            "https://images.unsplash.com/photo-1551334787-21e6bd3ab135?w=640"
         },
         {
           title: "商品名称",
           tag: "商品",
-          desc: "商品描述",
+          desc: "北京/朝阳",
           price: 100,
           origin_price: 200,
           imageURL:
-            "https://user-images.githubusercontent.com/20720117/48262986-80e02780-e45f-11e8-8426-2872916adad9.png"
+            "https://images.unsplash.com/photo-1551334787-21e6bd3ab135?w=640"
         }
       ]
     };
@@ -103,7 +103,10 @@ export default {
       let id = e.currentTarget.id;
       this.$router.push({
         path: "/pages/user/assemble/assembleDetail",
-        query: { id }
+        query: { 
+          id,
+          fromPage:this.fromPage
+          }
       });
     }
   }
@@ -112,12 +115,13 @@ export default {
 
 <style lang="scss" scoped>
 /deep/ .assemble_wrapper {
-  margin-top: 16px;
-  .assemble_main{
-    h3{
+  .assemble_main {
+    position: relative;
+    margin-top: 8px;
+    h3 {
       height: 37px;
       background: #fff;
-      border: 1px solid #F5F5F5;
+      border: 1px solid #f5f5f5;
       padding: 0 14px;
       box-sizing: border-box;
       line-height: 37px;
@@ -125,23 +129,60 @@ export default {
       color: #232628;
     }
     .custom {
-      height:114px;
-      margin-bottom: 20px;
+      height: 114px;
       background: #fff;
       padding: 12px 14px 14px 14px;
       box-sizing: border-box;
     }
-    .title_hq{
+    .title_hq {
       font-size: 14px;
+      line-height: 20px;
+      height: 40px;
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 3;
+      overflow: hidden;
     }
-    .pic{
+    .pic,
+    .van-card__thumb {
       width: 103px;
       height: 87px;
+    }
+    .price,
+    .title_hq,
+    .desc {
+      margin-left: 8px;
+    }
+    .price {
+      font-family: PingFangSC-Medium;
+      font-size: 20px;
+      color: #f07e1e;
     }
     .desc {
       margin-bottom: 8px;
       font-size: 12px;
-      color: #9B9B9B;
+      font-family: PingFangSC-Regular;
+      color: #9b9b9b;
+    }
+    .origin_price {
+      font-family: PingFangSC-Regular;
+      font-size: 12px;
+      color: #9b9b9b;
+    }
+    .tags {
+      width: 42px;
+      height: 16px;
+      display: inline-block;
+      font-family: PingFangSC-Regular;
+      font-size: 12px;
+      color: #9b9b9b;
+      position: absolute;
+      bottom: 14px;
+      right: 14px;
+      background: #f5f5f5;
+      border-radius: 3px;
+      text-align: center;
+      line-height: 16px;
     }
   }
 }
