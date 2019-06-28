@@ -8,7 +8,7 @@
   <div class="play_way">
     <div class="play_way_name"> 
       <span>拼团玩法</span>
-      <span class="more" @click="onOpenRole">详情<van-icon name="arrow" color="#1F1F1F" size="12px"/></span>
+      <span class="more" @click="onOpenRole">详情<span class="icons"><van-icon name="arrow" color="#1F1F1F" size="11px"/></span></span>
     </div>
     <div class="step">
       <div class="step_num">
@@ -66,11 +66,9 @@ export default {
       font-size: 12px;
       display: flex;
       align-items: center;
-      // i{
-      //   color: #1F1F1F;
-      //   font-size: 18px;
-      //   margin-left: 10px;
-      // }
+      .icons{
+        margin:2px 0px 0 5px;
+      }
     }
   }
 }
