@@ -2,6 +2,7 @@
 <template>
   <div class="order">
     订单信息
+    
   </div>
 </template>
 <style lang="scss">

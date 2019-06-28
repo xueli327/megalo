@@ -8,7 +8,8 @@ export default {
             codeTxt: '获取验证码',
             codeTime: 60,
             codeTimer: null,
-            canclick: true
+            canclick: true,
+            errPhone: false
         }
     },
     destroyed() {
@@ -25,8 +26,14 @@ export default {
         sendCode(data) {
             //调用接口  sendCode(data)
             if (!isvalidPhone(data)) {
-                console.log('手机格式错误')
+                this.errPhone = true
+                // wx.showToast({
+                //     title: '手机号格式错误',
+                //     icon: 'none',
+                //     duration: 2000
+                //   })
             } else {
+                this.errPhone = false
                 if(this.canclick){
                     this.codeTxt = `${--this.codeTime}秒重新发送`
                     this.codeTimer = setInterval(() => {

@@ -4,7 +4,6 @@ export default {
   onLaunch(options) {
     //wx.hideTabBar()
     // Do something initial when launch.
-   
   },
   onShow(options) {
     //  wx.hideTabBar()
@@ -30,9 +29,10 @@ export default {
 };
 </script>
 <style lang="scss">
-  page{
-    background: #F5F5F5;
-    font-family: PingFangSC-Medium;
-  }
+page {
+  font-family: PingFangSC-Medium;
+  overflow-x: hidden;
+  background: #f5f5f5;
+}
 </style>
 
